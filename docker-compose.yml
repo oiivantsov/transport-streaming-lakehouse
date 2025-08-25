@@ -1,0 +1,242 @@
+x-airflow-common:
+  &airflow-common
+  build:
+    context: ./airflow
+    dockerfile: Dockerfile
+  image: custom-airflow:2.10.5-python3.11
+  env_file:
+    - ./airflow/airflow.env
+  volumes:
+    - ./airflow/config:/opt/airflow/config
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/data:/opt/airflow/data
+    - ./airflow/logs:/opt/airflow/logs
+    - ./airflow/utils:/opt/airflow/utils
+    - ./spark/jobs:/home/jobs
+    - delta_storage:/data
+  depends_on:
+    - postgres
+
+services:
+  spark-master:
+    build: ./spark
+    container_name: spark-master
+    command: >
+      bash -c "/usr/sbin/sshd && exec /spark/bin/spark-class org.apache.spark.deploy.master.Master"
+    hostname: spark-master
+    ports:
+      - "7077:7077"
+      - "8081:8080"   # Web UI Master
+      - "4040:4040"
+      - "4041:4041"
+      - "4042:4042"
+    volumes:
+      - delta_storage:/data
+      - ./spark/jobs:/home/jobs
+
+  spark-worker:
+    build: ./spark
+    container_name: spark-worker
+    command: ["/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077"]
+    depends_on:
+      - spark-master
+    ports:
+      - "8082:8081"   # Web UI Worker
+    volumes:
+      - delta_storage:/data
+      - ./spark/jobs:/home/jobs
+
+  spark-db-init:
+    build: ./spark
+    container_name: spark-db-init
+    command: >
+      /spark/bin/spark-submit
+      --master spark://spark-master:7077
+      /home/jobs/init/create_databases.py
+    volumes:
+      - ./spark/jobs:/home/jobs
+      - delta_storage:/data
+    depends_on:
+      - spark-master
+      - hive-metastore
+      - postgres
+    restart: "no"
+
+  hsl-spark-streaming-landing:
+    build: ./spark
+    container_name: hsl-spark-streaming-landing
+    command: >
+      /spark/bin/spark-submit
+      --master spark://spark-master:7077
+      /home/jobs/landing/events_landing.py
+    volumes:
+      - ./spark/jobs:/home/jobs
+      - delta_storage:/data
+    depends_on:
+      - spark-master
+      - kafka
+
+  hsl-spark-streaming-metrics:
+    build: ./spark
+    container_name: hsl-spark-streaming-metrics
+    command: >
+      /spark/bin/spark-submit
+      --master spark://spark-master:7077
+      /home/jobs/rt_metrics/stream_metrics.py
+    ports:
+      - "9108:9108"   # expose Prometheus endpoint
+    volumes:
+      - ./spark/jobs:/home/jobs
+      - delta_storage:/data
+    depends_on:
+      - spark-master
+      - kafka
+      - prometheus
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.4
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.4
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+      - "9102:9102" # for JMX Exporter
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    command:
+      - sh
+      - -c
+      - "KAFKA_OPTS='-javaagent:/opt/jmx_exporter/jmx_prometheus_javaagent-0.20.0.jar=9102:/opt/jmx_exporter/kafka-2_0_0.yml' /etc/confluent/docker/run"
+    volumes:
+      - ./kafka/jmx:/opt/jmx_exporter
+
+  hsl-transport-service:
+    build:
+      context: ./hsl-transport-service
+    container_name: hsl-transport-service
+    depends_on:
+      - kafka
+      - zookeeper
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+      - GF_AUTH_DISABLE_LOGIN_FORM=false
+    volumes:
+      - ./grafana/dashboards:/etc/grafana/dashboards
+      - ./grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: metastore
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  hive-metastore:
+    build:
+      context: ./hive-metastore
+    container_name: hive-metastore
+    environment:
+      HIVE_METASTORE_DB_TYPE: postgres
+      HIVE_METASTORE_DB_HOST: postgres
+      HIVE_METASTORE_DB_NAME: metastore
+      HIVE_METASTORE_DB_USER: appuser
+      HIVE_METASTORE_DB_PASSWORD: 1234
+    ports:
+      - "9083:9083"
+    volumes:
+      - delta_storage:/data
+    depends_on:
+      - postgres
+
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+  trino:
+    build: ./trino
+    container_name: trino
+    ports:
+      - "8083:8080"
+    volumes:
+      - delta_storage:/data
+    depends_on:
+      - hive-metastore
+
+  dbeaver:
+    image: dbeaver/cloudbeaver:latest
+    container_name: dbeaver
+    ports:
+      - "8978:8978"
+    depends_on:
+      - postgres
+      - trino
+    volumes:
+      - dbeaver_data:/opt/cloudbeaver/workspace
+
+  airflow-init:
+    <<: *airflow-common
+    command: >
+      bash -c "airflow db init && airflow db upgrade && airflow users create --username airflow --firstname airflow --lastname airflow --role Admin --email airflow@airflow.com --password airflow"
+    restart: "no"
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+
+volumes:
+  delta_storage:
+  postgres_data:
+  dbeaver_data:

@@ -1,0 +1,535 @@
+route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url
+1001,HSL,1,Moskova - Töölö - Sörnäinen (M) - Käpylä,,0,http://aikataulut.hsl.fi/linjat/fi/h1_1a.html
+1001H,HSL,1H,Käpylä - Ruskeasuo,,0,http://aikataulut.hsl.fi/linjat/fi/h1_1a.html
+1001T,HSL,1T,Länsiterm. - Töölö - Sörnäinen (M) - Käpylä,,0,http://aikataulut.hsl.fi/linjat/fi/h1T.html
+1002,HSL,2,Olympiaterm. - Rautatieas. - Kamppi - Töölö - Pasila as.,,0,http://aikataulut.hsl.fi/linjat/fi/h2.html
+1002B,HSL,2B,Ruskeasuo- Pasila as.,,0,http://aikataulut.hsl.fi/linjat/fi/h2B.html
+1002H,HSL,2H,Pasila as. - Ooppera,,0,http://aikataulut.hsl.fi/linjat/fi/h2.html
+1003,HSL,3,Olympiaterm. - Eira - Lasipalatsi - Pikku Huopalahti,,0,http://aikataulut.hsl.fi/linjat/fi/h3.html
+1003H,HSL,3H,Olympiaterm. -Töölö - Ruusulankatu,,0,http://aikataulut.hsl.fi/linjat/fi/h3.html
+1003N,HSL,3N,Olympiaterminaali - Eira - Lasipalatsi - Meilahti,,0,http://aikataulut.hsl.fi/linjat/fi/h3.html
+1004,HSL,4,Katajanokka - Lasipalatsi - Alppila - Munkkiniemi,,0,http://aikataulut.hsl.fi/linjat/fi/h4.html
+1004H,HSL,4H,Munkkiniemi - Alppila - Ooppera,,0,http://aikataulut.hsl.fi/linjat/fi/h4.html
+1006B,HSL,6B,Hakaniemi - Sörnäinen (M) - Arabia,,0,http://aikataulut.hsl.fi/linjat/fi/h6B.html
+1006H,HSL,6H,Eiranranta - Töölö - Ruusulankatu,,0,http://aikataulut.hsl.fi/linjat/fi/h6_6t.html
+1006T,HSL,6T,Eiranranta - Rautatieasema - Kruununhaka - Katajanokan term.,,0,http://aikataulut.hsl.fi/linjat/fi/h6_6t.html
+1007B,HSL,7B,Linjat - Sörnäinen (M) - Pasila - Meilahden s.,,0,http://aikataulut.hsl.fi/linjat/fi/h7b.html
+1007H,HSL,7H,Katajanokan term. - Kruununhaka - Rautatieas. - Ruusulankatu,,0,http://aikataulut.hsl.fi/linjat/fi/h7H.html
+1007T,HSL,7T,Länsiterm. - Rautatieasema - Kruununhaka - Katajanokan term.,,0,http://aikataulut.hsl.fi/linjat/fi/h7T.html
+1008,HSL,8,Jätkäsaari - Ruoholahti (M) - Töölö - Sörnäinen (M) - Arabia,,0,http://aikataulut.hsl.fi/linjat/fi/h8.html
+1008H,HSL,8H,Arabia - Sörnäinen (M) - Alppila - Ruskeasuo,,0,http://aikataulut.hsl.fi/linjat/fi/h8H.html
+1008T,HSL,8T,Länsiterm. - Ruoholahti (M) - Töölö - Sörnäinen (M) - Arabia,,0,http://aikataulut.hsl.fi/linjat/fi/h8T.html
+1009B,HSL,9B,Hakaniemi - Kallio - Pasila as. - Ilmala,,0,http://aikataulut.hsl.fi/linjat/fi/h9B.html
+1009H,HSL,9H,Kauppatori - Rautatieas. - Kamppi - Töölö - Ruusulankatu,,0,http://aikataulut.hsl.fi/linjat/fi/h9H.html
+1009N,HSL,9N,Jätkäsaari - Rautatieas. - Kauppatori,,0,http://aikataulut.hsl.fi/linjat/fi/h9N.html
+1009T,HSL,9T,Länsiterminaali - Rautatieas. - Kauppatori,,0,http://aikataulut.hsl.fi/linjat/fi/h9T.html
+100H0,HSL,H0,Länsi-Pasila - Ruskeasuo,,0,http://aikataulut.hsl.fi/linjat/fi/hH0.html
+100H3,HSL,H3,Ooppera - Kuusitie,,0,http://aikataulut.hsl.fi/linjat/fi/hH3.html
+100H4,HSL,H4,Ruskeasuo - Ooppera,,0,http://aikataulut.hsl.fi/linjat/fi/hH4.html
+100H5,HSL,H5,Pasilan as. - Ruskeasuo,,0,http://aikataulut.hsl.fi/linjat/fi/hH5.html
+100H6,HSL,H6,Ooppera - Ylioppilastalo,,0,http://aikataulut.hsl.fi/linjat/fi/hH6.html
+100H7,HSL,H7,Meilahden sairaala - Länsi-Pasila - Ruskeasuo,,0,http://aikataulut.hsl.fi/linjat/fi/hH7.html
+100H8,HSL,H8,Ruskeasuo - Ooppera,,0,http://aikataulut.hsl.fi/linjat/fi/hH8.html
+100H9,HSL,H9,Ooppera - Töölö - Rautatieas.,,0,http://aikataulut.hsl.fi/linjat/fi/hH9.html
+1010,HSL,10,Ullanlinna - Lasipalatsi - Ooppera - Vallila,,0,http://aikataulut.hsl.fi/linjat/fi/h10.html
+1010H,HSL,10H,Vallila - Sturenkatu - Ooppera,,0,http://aikataulut.hsl.fi/linjat/fi/h10H.html
+1013,HSL,13,Nihti - Kalasatama - Pasilan asema - Länsi-Pasila,,0,http://aikataulut.hsl.fi/linjat/fi/h13.html
+1013H,HSL,13H,Nihti - Kalasatama - Pasila as. - Ruskeasuo,,0,http://aikataulut.hsl.fi/linjat/fi/h13H.html
+1016,HSL,16,Rautatientori-Korkeasaari,,701,http://aikataulut.hsl.fi/linjat/fi/b16.html
+1017,HSL,17,Meritullintori-Kruunuvuorenranta,,4,http://aikataulut.hsl.fi/linjat/fi/b17.html
+1019,HSL,19,Kauppatori-Suomenlinna,,4,http://aikataulut.hsl.fi/linjat/fi/hLautta_Kauppatori.html
+1019E,HSL,19E,Katajanokka-Suomenlinna,,4,http://aikataulut.hsl.fi/linjat/fi/hLautta_Katajanokka.html
+1020,HSL,20,Eira-Kamppi-Munkkivuori,,702,http://aikataulut.hsl.fi/linjat/fi/h20.html
+1020N,HSL,20N,Eira-Kamppi-Munkkivuori,,701,http://aikataulut.hsl.fi/linjat/fi/h20n.html
+1021,HSL,21,Kamppi-Ruoholahti (M)-Vattuniemi-Lauttasaari (M),,701,http://aikataulut.hsl.fi/linjat/fi/21bx.html
+1021N,HSL,21N,Asema-aukio-Vattuniemi-Lauttasaari (M)-Katajaharju,,701,http://aikataulut.hsl.fi/linjat/fi/b21N.html
+1022,HSL,22,Punavuori-Ruoholahti (M)-Lauttasaari (M)-Katajaharju,,701,http://aikataulut.hsl.fi/linjat/fi/b22.html
+1022B,HSL,22B,Lauttasaari (M)-Katajaharju,,701,http://aikataulut.hsl.fi/linjat/fi/b22B.html
+1022K,HSL,22K,Punavuori-Ruoholahti(M)-Salmisaari-Lauttasaari(M)-Katajah.,,701,http://aikataulut.hsl.fi/linjat/fi/b22K.html
+1023,HSL,23,Rautatientori-Pasila-Pirkkola,,701,http://aikataulut.hsl.fi/linjat/fi/b23.html
+1023N,HSL,23N,Rautatientori-Pasila-Ilmalantori,,701,http://aikataulut.hsl.fi/linjat/fi/h23n.html
+1024,HSL,24,Kamppi-Seurasaari,,701,http://aikataulut.hsl.fi/linjat/fi/b24.html
+1025,HSL,25,Kamppi-Pajamäki,,701,http://aikataulut.hsl.fi/linjat/fi/b25.html
+1026,HSL,26,Ruoholahti-Salmisaari,,701,http://aikataulut.hsl.fi/linjat/fi/b26.html
+1030,HSL,30,Eira-Kamppi-Munkkiniemi-Konala-Malminkartano-Myyrmäki,,702,https://www.hsl.fi/sites/default/files/uploads/h30_0.pdf
+1030N,HSL,30N,Eira-Kamppi-Munkkiniemi-Konala-Malminkartano-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b30N.html
+1031,HSL,31,Lassila-Munkkivuori,,704,http://aikataulut.hsl.fi/linjat/fi/b31.html
+1032,HSL,32,Lassila-Munkkivuori,,704,http://aikataulut.hsl.fi/linjat/fi/b32.html
+1033,HSL,33,Munkkivuori-Ritolehto,,704,http://aikataulut.hsl.fi/linjat/fi/b33.html
+1034,HSL,34,Munkkivuori-Kaskisaari,,704,http://aikataulut.hsl.fi/linjat/fi/b34.html
+1035,HSL,35,Niemenmäki-Munkkivuori-Rakuunantie,,704,http://aikataulut.hsl.fi/linjat/fi/b35.html
+1036,HSL,36,Konala-Kannelmäki-Maununneva-Pirkkola,,704,http://aikataulut.hsl.fi/linjat/fi/b36.html
+1037,HSL,37,Kamppi-Konala-Malminkartano-Honkasuo-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b37.html
+1040,HSL,40,Elielinaukio-Haaga-Kannelmäki,,702,http://aikataulut.hsl.fi/linjat/fi/b40.html
+1040N,HSL,40N,Elielinaukio-Haaga-Kannelmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b40N.html
+1041,HSL,41,Kamppi-Pohjois-Haagan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b41.html
+1042,HSL,42,Kamppi-Maununneva-Kannelmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b42.html
+1052,HSL,52,Kuninkaantammi-Kannelmäki-Huopalahti-Munkkivuori-Otaniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b52.html
+1053,HSL,53,Arabia-Oulunkylä-Maunula-Pohjois-Haaga-Konala-Uusmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b53.html
+1054,HSL,54,Itäkeskus (M)- Pitäjänmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b54.html
+1055,HSL,55,Rautatientori-Koskela,,701,http://aikataulut.hsl.fi/linjat/fi/b55.html
+1056,HSL,56,Kalasatama(M)-Käpylä-Kannelmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b56.html
+1057,HSL,57,Kontula(M) - Viikki - Koskela - Ruskeasuo - Munkkiniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b57.html
+1059,HSL,59,Herttoniemi(M)-Kalasatama(M)-Pasila-Konala-Malminkartano,,701,http://aikataulut.hsl.fi/linjat/fi/b59.html
+1061,HSL,61,Rautatientori-Pukinmäki-Tapaninkylä,,701,http://aikataulut.hsl.fi/linjat/fi/b61.html
+1061N,HSL,61N,Rautatientori-Pukinmäki-Töyrynummi,,701,http://aikataulut.hsl.fi/linjat/fi/b61N.html
+1063,HSL,63,Kamppi-Ruskeasuo-Maunula-Paloheinä,,701,http://aikataulut.hsl.fi/linjat/fi/b63.html
+1064,HSL,64,Rautatientori-Oulunkylä-Itä-Pakila,,701,http://aikataulut.hsl.fi/linjat/fi/b64.html
+1065,HSL,65,Rautatientori-Käpylä-Veräjälaakso,,701,http://aikataulut.hsl.fi/linjat/fi/h65.html
+1066,HSL,66,Rautatientori-Maunula-Länsi-Pakila-Paloheinä,,701,http://aikataulut.hsl.fi/linjat/fi/b66.html
+1066K,HSL,66K,Rautatientori-Maunula-Länsi-Pakila-Paloheinä,,701,http://aikataulut.hsl.fi/linjat/fi/b66K.html
+1067,HSL,67,Rautatientori-Maunula-Pakila-Torpparinmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b67.html
+1067N,HSL,67N,Rautatientori-Torpparinmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b67N.html
+1069,HSL,69,Kamppi-Pasila-Käpylä-Malmi-Jakomäki,,701,http://aikataulut.hsl.fi/linjat/fi/b69.html
+1069N,HSL,69N,Kamppi-Ilmala-Oulunkylä-Itä-Pakila,,701,http://aikataulut.hsl.fi/linjat/fi/b69N.html
+1070,HSL,70,Kamppi-Töölö-Pihlajamäki-Pukinmäki-Malmi,,701,http://aikataulut.hsl.fi/linjat/fi/b70.html
+1071,HSL,71,Rautatientori-Pihlajisto-Pihlajamäki-Malmi,,701,http://aikataulut.hsl.fi/linjat/fi/b71.html
+1073,HSL,73,Karhupuisto-Malmi-Puistolan as.-Ala-Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/b73.html
+1073N,HSL,73N,Rautatientori-Malmi-Puistolan asema-Ala-Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/h73n.html
+1074,HSL,74,Karhupuisto-Malmi-Tapanila-Puistola-Heikinlaakso,,701,http://aikataulut.hsl.fi/linjat/fi/b74.html
+1074B,HSL,74B,Puistolan asema-Heikinlaakso,,701,http://aikataulut.hsl.fi/linjat/fi/b74B.html
+1074N,HSL,74N,Rautatientori-Malmi-Tapanila-Puistola-Heikinlaakso,,701,http://aikataulut.hsl.fi/linjat/fi/h74n.html
+1075,HSL,75,Rautatientori-Jakomäki-Puistolan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b75.html
+1077,HSL,77,Rautatientori-Tattarisuo-Jakomäki,,701,http://aikataulut.hsl.fi/linjat/fi/h77.html
+1077N,HSL,77N,Rautatientori-Arabia-Malmi-Jakomäki,,701,http://aikataulut.hsl.fi/linjat/fi/b77N.html
+1078,HSL,78,Rautatientori-Viikki-Latokartano,,701,http://aikataulut.hsl.fi/linjat/fi/b78.html
+1078N,HSL,78N,Rautatientori-Viikki-Latokartano,,701,http://aikataulut.hsl.fi/linjat/fi/b78N.html
+1079,HSL,79,Herttoniemi (M)-Latokartano-Malmi-Siltamäki-Puistolan asem,,701,http://aikataulut.hsl.fi/linjat/fi/b79.html
+1079B,HSL,79B,Siilitie (M)-Latokartano,,701,http://aikataulut.hsl.fi/linjat/fi/b79B.html
+1079N,HSL,79N,Rautatientori-Malmi-Siltamäki-Puistolan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b79N.html
+1080,HSL,80,Herttoniemi(M)-Roihuvuori-Itäkeskus(M),,701,http://aikataulut.hsl.fi/linjat/fi/b80.html
+1081,HSL,81,Kulosaari-Herttoniemi(M)-Länsi-Herttoniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b81.html
+1082,HSL,82,Herttoniemi(M)-Roihuvuori-Itäkeskus(M),,701,http://aikataulut.hsl.fi/linjat/fi/h82_82b.html
+1082B,HSL,82B,Herttoniemi (M)-Tammisalo-Roihuvuori-Itäkeskus(M),,701,http://aikataulut.hsl.fi/linjat/fi/h82_82b.html
+1083,HSL,83,Herttoniemi(M)-Tammisalo-Herttoniemi(M),,701,http://aikataulut.hsl.fi/linjat/fi/b83.html
+1084,HSL,84,Herttoniemi(M)-Gunillankallio,,701,http://aikataulut.hsl.fi/linjat/fi/b84.html
+1085,HSL,85,Herttoniemi(M)-Jollas,,701,http://aikataulut.hsl.fi/linjat/fi/h85_85b.html
+1085K,HSL,85K,Herttoniemi(M)-Yliskylä-Jollas,,701,http://aikataulut.hsl.fi/linjat/fi/b85K.html
+1085N,HSL,85N,Rautatientori-Herttoniemenranta-Jollas,,701,http://aikataulut.hsl.fi/linjat/fi/h85n.html
+1086,HSL,86,Herttoniemi(M)-Santahamina,,701,http://aikataulut.hsl.fi/linjat/fi/b86.html
+1086K,HSL,86K,Herttoniemi (M)-Laajasalo-Santahamina,,701,http://aikataulut.hsl.fi/linjat/fi/b86K.html
+1086N,HSL,86N,Rautatientori-Kulosaari-Herttoniemi-Santahamina,,701,http://aikataulut.hsl.fi/linjat/fi/h86n.html
+1087,HSL,87,Herttoniemi(M) - Kruunuvuorenranta,,701,http://aikataulut.hsl.fi/linjat/fi/b87.html
+1087N,HSL,87N,Rautatientori-Yliskylä-Kruunuvuorenranta,,701,http://aikataulut.hsl.fi/linjat/fi/b87N.html
+1088,HSL,88,Herttoniemi(M) - Kaitalahti,,701,http://aikataulut.hsl.fi/linjat/fi/b88.html
+1089,HSL,89,Herttoniemi (M)-Yliskylä,,701,http://aikataulut.hsl.fi/linjat/fi/b89.html
+1090,HSL,90,Vuosaari (M)-Aurinkolahti-Vuosaaren satama,,701,http://aikataulut.hsl.fi/linjat/fi/b90.html
+1090A,HSL,90A,Rautatientori-Vuosaaren satama,,701,http://aikataulut.hsl.fi/linjat/fi/h90a.html
+1090N,HSL,90N,Rautatientori-Länsi-Herttoniemi-Vuosaari (Kallvikintie),,701,http://aikataulut.hsl.fi/linjat/fi/h90n.html
+1092,HSL,92,Itäkeskus(M)-Myllypuro,,701,http://aikataulut.hsl.fi/linjat/fi/b92.html
+1092N,HSL,92N,Rautatientori-Myllypuro-Kivikko-Kontula (Keinutie),,701,http://aikataulut.hsl.fi/linjat/fi/h92n.html
+1094,HSL,94,Itäkeskus(M)-Porttitie-Kontula(M)-Kontulankaari,,701,http://aikataulut.hsl.fi/linjat/fi/h94.html
+1094A,HSL,94A,Kotikonnuntie-Kontula(M)-Kivikko-Kontula(M),,701,http://aikataulut.hsl.fi/linjat/fi/h94a.html
+1094B,HSL,94B,Kivikonlaita-Kontula(M),,701,http://aikataulut.hsl.fi/linjat/fi/h94b.html
+1094N,HSL,94N,Rautatientori-Roihuvuori-Kontulankaari,,701,http://aikataulut.hsl.fi/linjat/fi/h94n.html
+1095,HSL,95,Itäkeskus(M)-Mellunmäki(M)-Kontula(M)-Keinutie,,701,http://aikataulut.hsl.fi/linjat/fi/b95.html
+1095N,HSL,95N,Rautatientori-Tammisalo-Roihuv.-Mellunmäki-Länsimäki,,701,http://aikataulut.hsl.fi/linjat/fi/h95n.html
+1096,HSL,96,Vuosaari(M)-Porslahdentie,,701,http://aikataulut.hsl.fi/linjat/fi/b96.html
+1096N,HSL,96N,Rautatientori-Aurinkolahti-Vuosaari(Porslahdentie),,701,http://aikataulut.hsl.fi/linjat/fi/h96n.html
+1097,HSL,97,Itäkeskus(M)-Vartioharju-Mellunmäki(M),,701,http://aikataulut.hsl.fi/linjat/fi/h97_97v.html
+1097N,HSL,97N,Rautatient.-Puotila-Mellunmäki(M)-Kontula (Kotikonnuntie),,701,http://aikataulut.hsl.fi/linjat/fi/h97n.html
+1097V,HSL,97V,Itäkeskus(M)-Puotila-Vartioharju-Mellunmäki(M),,701,http://aikataulut.hsl.fi/linjat/fi/h97_97v.html
+1098,HSL,98,Itäkeskus(M)-Marjaniemi-Rastila(M),,701,http://aikataulut.hsl.fi/linjat/fi/b98.html
+1099V,HSL,99V,Itäkeskus(M)-Vuosaari(M),,701,http://aikataulut.hsl.fi/linjat/fi/b99V.html
+1500,HSL,500,Itäkeskus(M)-Pasila-Munkkivuori,,702,http://aikataulut.hsl.fi/linjat/fi/b500.html
+1500N,HSL,500N,Itäkeskus(M)-Pasila-Munkkivuori,,701,http://aikataulut.hsl.fi/linjat/fi/b500N.html
+1506,HSL,506,Myllypuro(M)-Viikki-Kumpula-Pasila-Ruskeasuo,,701,http://aikataulut.hsl.fi/linjat/fi/b506.html
+1603,HSL,603,Malmi-Oulunkylä-Koskela-Käpylä-Maunula-Pakila-Paloheinä,,704,http://aikataulut.hsl.fi/linjat/fi/b603.html
+1701,HSL,701,Viikki-Pihlajamäki-Malmi-Suutarila-Siltamäki,,704,http://aikataulut.hsl.fi/linjat/fi/b701.html
+1702,HSL,702,Jakomäki-Puistola-Malmi-Tapaninvainio-Savela,,704,http://aikataulut.hsl.fi/linjat/fi/b702.html
+1704,HSL,704,Malmi-Sepänmäki,,704,http://aikataulut.hsl.fi/linjat/fi/b704.html
+1802,HSL,802,Itäkeskus(M)-Jollas,,704,http://aikataulut.hsl.fi/linjat/fi/b802.html
+1805,HSL,805,Itäkeskus (M)-Myllypuro,,704,http://aikataulut.hsl.fi/linjat/fi/b805.html
+1812,HSL,812,Mellunmäki-Myllypuro,,704,http://aikataulut.hsl.fi/linjat/fi/b812.html
+1813,HSL,813,Vuosaari(M)-Merikorttikuja,,704,http://aikataulut.hsl.fi/linjat/fi/b813.html
+1814,HSL,814,Vuosaari(M)-Koukkusaarentie-Pohjoinen ostoskeskus,,704,http://aikataulut.hsl.fi/linjat/fi/b814.html
+1815,HSL,815,Vuosaari(M)-Isonvillasaarentie,,704,http://aikataulut.hsl.fi/linjat/fi/b815.html
+1816,HSL,816,Vuosaari(M)-Kallahti-Kallahdenniemi,,704,http://aikataulut.hsl.fi/linjat/fi/b816.html
+1817,HSL,817,Vuosaari(M)-Kallahti-Ramsinniemi,,704,http://aikataulut.hsl.fi/linjat/fi/b817.html
+1818,HSL,818,Vuosaari (M)-Vuosaaren satama-Mellunmäki (M),,701,http://aikataulut.hsl.fi/linjat/fi/b818.html
+1831,HSL,831,Itäkeskus(M)-Östersundom-Landbo,,701,http://aikataulut.hsl.fi/linjat/fi/b831.html
+1831K,HSL,831K,Itäkeskus(M)-Östersundom-Karhusaari-Landbo,,701,http://aikataulut.hsl.fi/linjat/fi/b831K.html
+1839,HSL,839,Rapuojantie-Östersundom-Puroniitty,,701,http://aikataulut.hsl.fi/linjat/fi/b839.html
+1839K,HSL,839K,Rapuojantie-Östersundom-Puroniitty,,701,http://aikataulut.hsl.fi/linjat/fi/b839K.html
+2015,HSL,15,Itäkeskus (M)-Keilaniemi (M),,900,http://aikataulut.hsl.fi/linjat/fi/e15.html
+2015X,HSL,15X,Itäkeskus(M)-Viikki-Oulunkylä,,701,http://aikataulut.hsl.fi/linjat/fi/e15X.html
+2102N,HSL,102N,Kamppi-Lauttasaari(M)-Westend-Tapiola(M)-Teekkarikylä,,701,http://aikataulut.hsl.fi/linjat/fi/b102N.html
+2105,HSL,105,Lauttasaari(M)-Westend-Haukilahti-Mankkaa,,701,http://aikataulut.hsl.fi/linjat/fi/b105.html
+2108N,HSL,108N,Kamppi-Teekkarikylä-Tapiola(M)-Westendinasema,,701,http://aikataulut.hsl.fi/linjat/fi/b108N.html
+2111,HSL,111,Otaniemi-Tapiola (M)-Westend-Matinkylä (M),,701,http://aikataulut.hsl.fi/linjat/fi/b111.html
+2112N,HSL,112N,Kamppi-Lauttasaari (M)-Westend-Matinkylä(M)-Friisilä,,701,http://aikataulut.hsl.fi/linjat/fi/b112N.html
+2113,HSL,113,Tapiola (M)-Laajalahti-Leppävaara,,701,http://aikataulut.hsl.fi/linjat/fi/b113.html
+2113N,HSL,113N,Kamppi-Tapiola (M)-Laajalahti-Perkkaa-Leppävaara,,701,http://aikataulut.hsl.fi/linjat/fi/b113N.html
+2114,HSL,114,Matinkylä (M)-Urheilupuisto (M)-Mankkaa-Kilo-Leppävaara,,701,http://aikataulut.hsl.fi/linjat/fi/b114.html
+2114N,HSL,114N,Kamppi-Leppävaara,,701,http://aikataulut.hsl.fi/linjat/fi/b114N.html
+2116,HSL,116,Tapiola-Pohjois-Tapiola,,704,http://aikataulut.hsl.fi/linjat/fi/b116.html
+2117,HSL,117,Tapiola-Aarnivalkea-Itäranta-Tapiola,,704,http://aikataulut.hsl.fi/linjat/fi/b117.html
+2118,HSL,118,Tapiola (M)-Urheilupuisto (M)-Suurpelto-Espoon keskus,,701,http://aikataulut.hsl.fi/linjat/fi/b118.html
+2118N,HSL,118N,Kamppi-Tapiola (M)-Suurpelto-Kauniainen-Jorvi,,701,http://aikataulut.hsl.fi/linjat/fi/b118N.html
+2119,HSL,119,Tapiola-Niittykumpu,,704,http://aikataulut.hsl.fi/linjat/fi/b119.html
+2121,HSL,121,Kamppi-Olari,,701,http://aikataulut.hsl.fi/linjat/fi/b121.html
+2121A,HSL,121A,Kamppi-Olari-Latokaski,,701,http://aikataulut.hsl.fi/linjat/fi/b121A.html
+2124,HSL,124,Tapiola (M)-Niittykumpu (M)-Olari-Espoonlahti (M),,701,http://aikataulut.hsl.fi/linjat/fi/b124.html
+2125,HSL,125,Tapiola (M)-Niittykumpu (M)-Olari-Nöykkiö-Espoonlahti (M),,701,http://aikataulut.hsl.fi/linjat/fi/b125.html
+2125N,HSL,125N,Kamppi-Tapiola (M)-Niittykumpu (M)-Olari- Latokaski,,701,http://aikataulut.hsl.fi/linjat/fi/b125N.html
+2133,HSL,133,Friisilä-Matinkylä (M)-Henttaa,,701,http://aikataulut.hsl.fi/linjat/fi/b133.html
+2134N,HSL,134N,Kamppi-Niittykumpu (M)-Espoon keskus-Suvela-Tuomarila,,701,http://aikataulut.hsl.fi/linjat/fi/b134N.html
+2137,HSL,137,Matinkylä (M)-Matinkallio-Piispankylä-Kuitinmäki,,704,http://aikataulut.hsl.fi/linjat/fi/b137.html
+2138,HSL,138,Matinkylä (M)-Nuottaniemi-Matinkallio,,704,http://aikataulut.hsl.fi/linjat/fi/b138.html
+2146N,HSL,146N,Kamppi-Kivenlahti-Saunalahti,,701,http://aikataulut.hsl.fi/linjat/fi/b146N.html
+2147N,HSL,147N,Kamppi-Kivenlahti,,701,http://aikataulut.hsl.fi/linjat/fi/b147N.html
+2148,HSL,148,Espoonlahden keskus-Soukka-Iivisniemi,,704,http://aikataulut.hsl.fi/linjat/fi/b148.html
+2149,HSL,149,Espoonlahden keskus-Kivenlahti,,704,http://aikataulut.hsl.fi/linjat/fi/b149.html
+2158,HSL,158,Matinkylä (M)-Nöykkiö-Tillinmäki-Espoonlahti (M),,701,http://aikataulut.hsl.fi/linjat/fi/b158.html
+2159,HSL,159,Matinkylä (M)-Latokaski,,701,http://aikataulut.hsl.fi/linjat/fi/b159.html
+2162,HSL,162,Espoonlahti (M)-Kivenlahti (M)-Saunalahti-Kauklahti,,701,http://aikataulut.hsl.fi/linjat/fi/b162.html
+2163,HSL,163,Suvisaaristo-Espoonlahti (M)-Saunalahti-Kurttila-Kauklahti,,701,http://aikataulut.hsl.fi/linjat/fi/b163.html
+2163K,HSL,163K,Suvisaaristo-Espoonlahti (M)-Saunalahti-Kurttila-Kauklahti,,701,http://aikataulut.hsl.fi/linjat/fi/b163K.html
+2164,HSL,164,Kamppi-Saunalahti-Kurttila,,701,http://aikataulut.hsl.fi/linjat/fi/b164.html
+2164K,HSL,164K,Kamppi-Saunalahti-Tillinmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b164K.html
+2165,HSL,165,Espoonlahti (M)-Kivenlahti (M)-Saunalahti-Kauklahti-Vanttila,,701,http://aikataulut.hsl.fi/linjat/fi/b165.html
+2165N,HSL,165N,Kamppi-Saunalahti-Kauklahti,,701,http://aikataulut.hsl.fi/linjat/fi/b165N.html
+2166,HSL,166,Lasilaakso-Kauklahti-Bassenkylä,,701,http://aikataulut.hsl.fi/linjat/fi/e166b.html
+2166K,HSL,166K,Lasilaakso-Kauklahti-Bassenkylä,,701,http://aikataulut.hsl.fi/linjat/fi/e166b.html
+2167,HSL,167,Lasilaakso-Kauklahti-Järvikylä,,701,http://aikataulut.hsl.fi/linjat/fi/b167.html
+2168,HSL,168,Espoon keskus-Mikkelä-Kauklahti,,704,http://aikataulut.hsl.fi/linjat/fi/b168.html
+2169,HSL,169,Espoon keskus-Suvela,,704,http://aikataulut.hsl.fi/linjat/fi/b169.html
+2200,HSL,200,Elielinaukio-Leppävaara-Espoon keskus,,702,http://aikataulut.hsl.fi/linjat/fi/b200.html
+2200N,HSL,200N,Elielinaukio-Leppävaara-Espoon keskus,,701,http://aikataulut.hsl.fi/linjat/fi/b200N.html
+2201,HSL,201,Leppävaara-Mäkkylä-Pitäjänmäki- Pajamäki,,704,http://aikataulut.hsl.fi/linjat/fi/b201.html
+2201B,HSL,201B,Leppävaara-Mäkkylä-Pitäjänmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b201b.html
+2202,HSL,202,Vermonniitty-Leppävaara-Helmipöllönmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b202.html
+2202N,HSL,202N,Elielinaukio-Aalto-yliopisto(M)-Leppävaaran asema,,701,http://aikataulut.hsl.fi/linjat/fi/b202N.html
+2203,HSL,203,Leppävaara-Uusmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b203.html
+2206,HSL,206,Leppävaara-Kera,,701,http://aikataulut.hsl.fi/linjat/fi/b206.html
+2206K,HSL,206K,Leppävaara-Kilo-Kera,,701,http://aikataulut.hsl.fi/linjat/fi/b206K.html
+2207,HSL,207,Leppävaara-Lintukorpi,,704,http://aikataulut.hsl.fi/linjat/fi/b207.html
+2212,HSL,212,Kamppi-Meilahti-Laajalahti-Kauniainen,,701,http://aikataulut.hsl.fi/linjat/fi/b212.html
+2213,HSL,213,Kamppi-Meilahti-Suvela-Espoon keskus-Kauklahti,,701,http://aikataulut.hsl.fi/linjat/fi/b213.html
+2213N,HSL,213N,Kamppi-Meilahti-Laajalahti-Suvela-Espoon keskus,,701,http://aikataulut.hsl.fi/linjat/fi/b213N.html
+2213X,HSL,213X,Elielinaukio-Tuomarila-Espoon keskus,,701,http://aikataulut.hsl.fi/linjat/fi/b213X.html
+2214,HSL,214,Leppävaara-Karakallio-Rastaala-Jupperi,,701,http://aikataulut.hsl.fi/linjat/fi/b214.html
+2214A,HSL,214A,Leppävaara-Karakallio-Jupperi-Lähderanta,,701,http://aikataulut.hsl.fi/linjat/fi/b214A.html
+2215,HSL,215,Leppävaara-Jupperi-Lähderanta,,701,http://aikataulut.hsl.fi/linjat/fi/b215.html
+2224,HSL,224,Leppävaara-Kauniainen-Espoon keskus-Tuomarila,,701,http://aikataulut.hsl.fi/linjat/fi/b224.html
+2224B,HSL,224B,Kauniainen-Espoon keskus-Tuomarila,,701,http://aikataulut.hsl.fi/linjat/fi/b224B.html
+2225,HSL,225,Leppävaara-Karakallio-Viherlaakso-Lippajärvi-Högnäs,,701,http://aikataulut.hsl.fi/linjat/fi/b225.html
+2227,HSL,227,Leppävaara-Lippajärvi-Jorvi,,701,http://aikataulut.hsl.fi/linjat/fi/b227.html
+2227K,HSL,227K,Leppävaara-Kera-Lippajärvi-Jorvi,,701,http://aikataulut.hsl.fi/linjat/fi/b227K.html
+2227N,HSL,227N,Elielinaukio-Leppävaara-Jorvi,,701,http://aikataulut.hsl.fi/linjat/fi/b227N.html
+2229,HSL,229,Leppävaara-Karakallio-Viherlaakso,,704,http://aikataulut.hsl.fi/linjat/fi/b229.html
+2231N,HSL,231N,Elielinaukio-Leppävaara-Lintuvaara-Vanhakartano,,701,http://aikataulut.hsl.fi/linjat/fi/s231n.html
+2232,HSL,232,Kirkkotie-Gallträsk-Kasavuori-Kirkkotie,,704,http://aikataulut.hsl.fi/linjat/fi/b232.html
+2235N,HSL,235N,Elielinaukio-Leppävaara-Espoon keskus-Kuurinniitty,,701,http://aikataulut.hsl.fi/linjat/fi/b235N.html
+2236,HSL,236,Leppävaara-Viherlaakso-Kalajärvi-Serena,,701,http://aikataulut.hsl.fi/linjat/fi/b236.html
+2236V,HSL,236V,Leppävaara-Viherlaakso-Koskelo-Kalajärvi-Serena,,701,http://aikataulut.hsl.fi/linjat/fi/b236V.html
+2237,HSL,237,Leppävaara-Viherlaakso-Järvenperä-Högnäs,,701,http://aikataulut.hsl.fi/linjat/fi/s237.html
+2237V,HSL,237V,Leppävaara-Viherlaakso-Högnäs,,701,http://aikataulut.hsl.fi/linjat/fi/s237.html
+2239,HSL,239,Leppävaara-Viherlaakso-Perusmäki-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b239.html
+2239V,HSL,239V,Leppävaara-Viherlaakso-Perusmäki-Kalajärvi-Serena,,701,http://aikataulut.hsl.fi/linjat/fi/b239V.html
+2241,HSL,241,Espoon keskus-Mikkelä-Hirvisuo,,701,http://aikataulut.hsl.fi/linjat/fi/b241.html
+2241V,HSL,241V,Espoon keskus-Hirvisuo,,701,http://aikataulut.hsl.fi/linjat/fi/b241V.html
+2242,HSL,242,Espoon keskus-Kauklahti,,701,http://aikataulut.hsl.fi/linjat/fi/b242.html
+2244,HSL,244,Espoon keskus-Nupuri-Brobacka-Siikaniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b244.html
+2245A,HSL,245A,Espoon keskus-Nuuksionpää-Kattila,,701,http://aikataulut.hsl.fi/linjat/fi/b245A.html
+2246,HSL,246,Espoon keskus-Röylä-Bodom-Espoon keskus,,701,http://aikataulut.hsl.fi/linjat/fi/b246.html
+2246K,HSL,246K,Espoon keskus-Kellonummi-Röylä,,701,http://aikataulut.hsl.fi/linjat/fi/b246K.html
+2246KT,HSL,246KT,Espoon keskus-Kellonummi-Bodom-Röylä,,701,http://aikataulut.hsl.fi/linjat/fi/b246KT.html
+2246T,HSL,246T,Espoon keskus-Bodom-Röylä,,701,http://aikataulut.hsl.fi/linjat/fi/b246T.html
+2247,HSL,247,Espoon keskus-Muurala-Nupuri-Siikaniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b247.html
+2247B,HSL,247B,Espoon keskus-Muurala-Nupuri,,701,http://aikataulut.hsl.fi/linjat/fi/b247B.html
+2321,HSL,321,Elielinaukio-Jupperi-Vanhakartano,,701,http://aikataulut.hsl.fi/linjat/fi/b321.html
+2345,HSL,345,Elielinaukio-Rinnekoti,,701,http://aikataulut.hsl.fi/linjat/fi/b345.html
+2345K,HSL,345K,Elielinaukio-Rinnekoti,,701,http://aikataulut.hsl.fi/linjat/fi/b345K.html
+2345N,HSL,345N,Elielinaukio-Hämeenkylä-Rinnekoti,,701,http://aikataulut.hsl.fi/linjat/fi/b345N.html
+2348,HSL,348,Rinnekoti-Röylä-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b348.html
+2349,HSL,349,Lepsämänjoki-Hännikäinen-Serena-Kalajärvi-Perusmäki-Nemlahti,,701,http://aikataulut.hsl.fi/linjat/fi/b349.html
+2349B,HSL,349B,Lepsämänjoki-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b349B.html
+2349BK,HSL,349BK,Lepsämänjoki-Hännikäinen-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b349BK.html
+2436N,HSL,436N,Elielinaukio-Myyrmäki-Martinlaakso-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b436N.html
+2502,HSL,502,Kallio-Meilahti-Munkkiniemi-Leppävaara,,701,http://aikataulut.hsl.fi/linjat/fi/b502.html
+2510,HSL,510,Herttoniemi (M)-Pasila-Tapiola(M)-Espoonl.(M)-Kivenlahti (M),,702,http://aikataulut.hsl.fi/linjat/fi/b510.html
+2510N,HSL,510N,Herttoniemi (M)-Pasila-Tapiola(M)-Espoonl.(M)-Kivenlahti (M),,701,http://aikataulut.hsl.fi/linjat/fi/b510N.html
+2521,HSL,521,Leppävaara-Pähkinärinne-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b521.html
+2521K,HSL,521K,Leppävaara-Pähkinärinne-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b521K.html
+2531,HSL,531,Tiistilä-Matinkylä (M)-Olari-Espoon keskus,,701,http://aikataulut.hsl.fi/linjat/fi/b531.html
+2533,HSL,533,Hyljelahti-Matinkylä (M)-Kauniainen-Järvenperä,,701,http://aikataulut.hsl.fi/linjat/fi/b533.html
+2542,HSL,542,Soukanniemi-Soukka(M)-Espoonl.(M)-Kivenl.(M)-Espoon k.-Jorvi,,701,http://aikataulut.hsl.fi/linjat/fi/b542.html
+2544,HSL,544,Leppävaara-Karamalmi-Kaitaa-Soukka-Espoonlahti-Kivenlahti,,701,http://aikataulut.hsl.fi/linjat/fi/b544.html
+2548,HSL,548,Tapiola (M)-Mankkaa-Kauniainen-Viherlaakso-Jupperi,,701,http://aikataulut.hsl.fi/linjat/fi/b548.html
+2549,HSL,549,Tapiola(M)-Mankkaa-Kauniainen-Jorvi,,701,http://aikataulut.hsl.fi/linjat/fi/b549.html
+2553,HSL,553,Hakunila-Malmi-Maunula-Leppävaara,,701,http://aikataulut.hsl.fi/linjat/fi/b553.html
+2554,HSL,554,Itäkeskus(M)-Leppävaara Tapiola(M)-Westendinasema,,701,http://aikataulut.hsl.fi/linjat/fi/b554.html
+2582,HSL,582,Espoon keskus-Juvanmalmi-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b582.html
+2582V,HSL,582V,Espoon keskus-Juvanmalmi-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b582V.html
+3001D,HSL,D,Helsinki-Riihimäki,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3001H,HSL,H,Helsinki-Siuntio-Hanko,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3001I,HSL,I,Helsinki-Helsinki,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3001K,HSL,K,Helsinki-Kerava,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3001R,HSL,R,Helsinki-Riihimäki,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3001T,HSL,T,Helsinki-Riihimäki,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3001Z,HSL,Z,Helsinki-Lahti,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3002A,HSL,A,Helsinki-Leppävaara,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3002E,HSL,E,Helsinki-Kauklahti,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3002L,HSL,L,Helsinki-Kirkkonummi,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3002P,HSL,P,Helsinki-Helsinki,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3002U,HSL,U,Helsinki-Leppävaara,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+3002Y,HSL,Y,Helsinki-Siuntio,,109,https://www.vr.fi/cs/vr/fi/paakaupunkiseudun_lahiliikenne
+31M1,HSL,M1,Kivenlahti - Siilitie,,1,http://aikataulut.hsl.fi/linjat/fi/bM1.html
+31M2,HSL,M2,Tapiola - Mellunmäki,,1,http://aikataulut.hsl.fi/linjat/fi/bM2.html
+31M2B,HSL,M2B,Itäkeskus - Mellunmäki,,1,http://aikataulut.hsl.fi/linjat/fi/bM2B.html
+4300,HSL,300,Elielinaukio-Myyrmäki,,702,http://aikataulut.hsl.fi/linjat/fi/b300.html
+4300N,HSL,300N,Elielinaukio-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b300N.html
+4311,HSL,311,Kaivoksela-Myyrmäki-Hämeenkylä,,701,http://aikataulut.hsl.fi/linjat/fi/b311.html
+4313,HSL,313,Kaivoksela-Myyrmäki-Hämeenkylä,,704,https://www.hsl.fi/sites/default/files/uploads/hsl_lahibussi_313_web.pdf
+4335,HSL,335,Askisto-Martinlaakso-Louhela-Myyrmäki-Vapaala-Linnainen,,701,http://aikataulut.hsl.fi/linjat/fi/b335.html
+4335B,HSL,335B,Askisto-Martinlaakso-Louhela-Myyrmäki-Vapaala,,701,http://aikataulut.hsl.fi/linjat/fi/b335B.html
+4343,HSL,343,Askisto-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b343.html
+4400,HSL,400,Kamppi-Martinlaakso-Vantaankoski,,702,http://aikataulut.hsl.fi/linjat/fi/b400.html
+4400N,HSL,400N,Kamppi-Martinlaakso-Vantaankoski,,701,http://aikataulut.hsl.fi/linjat/fi/b400N.html
+4413,HSL,413,Martinlaakso-Myyrmäki,,704,https://www.hsl.fi/sites/default/files/uploads/hsl_lahibussi_413_web.pdf
+4415N,HSL,415N,Elielinaukio-Myyrmäki-Ylästö-Lentoasema,,701,http://aikataulut.hsl.fi/linjat/fi/b415N.html
+4431,HSL,431,Elielinaukio-Kivistö,,701,http://aikataulut.hsl.fi/linjat/fi/b431.html
+4431B,HSL,431B,Elielinaukio-Vantaanlaakso,,701,http://aikataulut.hsl.fi/linjat/fi/b431B.html
+4431N,HSL,431N,Elielinaukio-Kuninkaantammi-Vantaanlaakso-Kivistö-Lentoasema,,701,http://aikataulut.hsl.fi/linjat/fi/b431N.html
+4433,HSL,433,Martinlaakso-Vantaanpuisto-Petas-Kivistö,,701,http://aikataulut.hsl.fi/linjat/fi/b433.html
+4434,HSL,434,Kivistö-Keimolanmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b434.html
+4443,HSL,443,Kivistö-Vestra,,701,http://aikataulut.hsl.fi/linjat/fi/b443.html
+4443K,HSL,443K,Kivistö-Luhtaanmäki-Vestra,,701,http://aikataulut.hsl.fi/linjat/fi/b443K.html
+4444,HSL,444,Kivistö-Katriinan sairaala-Tapola-Riipilä,,701,http://aikataulut.hsl.fi/linjat/fi/b444.html
+4444T,HSL,444T,Kivistö-Katriinan sairaala-Tapola-Pirttiranta-Riipilä,,701,http://aikataulut.hsl.fi/linjat/fi/b444T.html
+4445,HSL,445,Kivistö-Katriinan sairaala-Reuna,,701,http://aikataulut.hsl.fi/linjat/fi/b445.html
+4446,HSL,446,Kivistö-Koivupää-Katriinan sairaala-Kesäkylä,,701,http://aikataulut.hsl.fi/linjat/fi/b446.html
+4447,HSL,447,Kivistö-Viinikanmetsä-Kesäkylä,,701,http://aikataulut.hsl.fi/linjat/fi/b447.html
+4518,HSL,518,Ilmala-Pasila-Kuninkaanmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b518.html
+4522,HSL,522,Leppävaara - Pähkinärinne - Vantaankoski,,701,http://aikataulut.hsl.fi/linjat/fi/b522.html
+4522B,HSL,522B,Leppävaara-Hämevaara,,701,http://aikataulut.hsl.fi/linjat/fi/b522B.html
+4560,HSL,560,Rastila (M)-Vuosaari (M)-Kontula (M)-Malmi-Myyrmäki,,702,http://aikataulut.hsl.fi/linjat/fi/b560.html
+4560N,HSL,560N,Rastila (M)-Vuosaari (M)-Kontula (M)-Malmi-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b560N.html
+4561,HSL,561,Itäkeskus (M)-Malmi-Aviapolis-Kivistö,,701,http://aikataulut.hsl.fi/linjat/fi/b561.html
+4562,HSL,562,Itäkeskus (M) - Malmi - Aviapolis - Lentoasema,,701,http://aikataulut.hsl.fi/linjat/fi/v562.html
+4570,HSL,570,Mellunmäki(M)-Tikkurila-Aviapolis-Lentoasema,,702,http://aikataulut.hsl.fi/linjat/fi/b570.html
+4570N,HSL,570N,Mellunmäki(M)-Tikkurila-Aviapolis-Lentoasema,,701,http://aikataulut.hsl.fi/linjat/fi/b570N.html
+4571,HSL,571,Tikkurila-Ylästö-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b571.html
+4571B,HSL,571B,Tikkurila-Hels. pit. kirkko,,701,http://aikataulut.hsl.fi/linjat/fi/b571B.html
+4572,HSL,572,Mellunmäki-Martinlaakso,,701,http://aikataulut.hsl.fi/linjat/fi/b572.html
+4574,HSL,574,Peijas-Ruskeasanta-Aviapolis-Ylästö-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b574.html
+4576,HSL,576,Tikkurila-Aviapolis-Seutula-Kivistö,,701,http://aikataulut.hsl.fi/linjat/fi/b576.html
+4587,HSL,587,Mellunmäki-Korso-Vierumäki,,701,http://aikataulut.hsl.fi/linjat/fi/b587.html
+4588,HSL,588,Länsisalmi-Itä-Hakkila-Sotungin koulu,,701,http://aikataulut.hsl.fi/linjat/fi/b588.html
+4588B,HSL,588B,Länsisalmi-Sotungin koulu,,701,http://aikataulut.hsl.fi/linjat/fi/b588B.html
+4600,HSL,600,Rautatientori-Kartanonkoski-Lentoasema,,702,http://aikataulut.hsl.fi/linjat/fi/b600.html
+4600N,HSL,600N,Rautatientori-Kartanonkoski-Lentoasema,,701,http://aikataulut.hsl.fi/linjat/fi/b600N.html
+4611,HSL,611,Rautatientori-Siltamäki-Suutarila-Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/b611.html
+4614,HSL,614,Sörnäinen-Tammisto-Ylästö,,701,http://aikataulut.hsl.fi/linjat/fi/b614.html
+4614K,HSL,614K,Sörnäinen-Tammisto-Ylästö,,701,http://aikataulut.hsl.fi/linjat/fi/b614K.html
+4617,HSL,617,Sörnäinen-Tammisto-Aviapolis,,701,http://aikataulut.hsl.fi/linjat/fi/b617.html
+4619,HSL,619,Tikkurila-Hiekkaharju-Simonsilta,,701,http://aikataulut.hsl.fi/linjat/fi/b619.html
+4623,HSL,623,Sörnäinen-Peijas,,701,http://aikataulut.hsl.fi/linjat/fi/b623.html
+4624,HSL,624,Tikkurila-Ilola-Leinelä-Koivukylä-Havukoski-Päiväkumpu,,701,http://aikataulut.hsl.fi/linjat/fi/b624.html
+4624N,HSL,624N,Tikkurila-Leinelä-Ilola,,701,http://aikataulut.hsl.fi/linjat/fi/b624N.html
+4625,HSL,625,Tikkurila-Koivukylä-Peijas-Rekolanmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b625.html
+4631,HSL,631,Tikkurila-Koivukylä-Korso-Kulomäki,,701,http://aikataulut.hsl.fi/linjat/fi/b631.html
+4633,HSL,633,Sörnäinen-Ilola-Korso,,701,http://aikataulut.hsl.fi/linjat/fi/b633.html
+4699X,HSL,699X,Elielinaukio - Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/b699X.html
+4711,HSL,711,Sörnäinen-Kuusikko-Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/b711.html
+4711K,HSL,711K,Sörnäinen-Kuusikko-Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/b711K.html
+4712,HSL,712,Tikkurila - Kuusijärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b712.html
+4713,HSL,713,Hakunilan palvelulinja,,704,https://www.hsl.fi/sites/default/files/uploads/hsl_lahibussi_713_web.pdf
+4713B,HSL,713B,Hakunilan palvelulinja,,704,https://www.hsl.fi/sites/default/files/uploads/hsl_lahibussi_713_web.pdf
+4717,HSL,717,Rautatientori-Jakomäki-Hakunila-Honkanummi-Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/b717.html
+4717K,HSL,717K,Rautatientori-Jakomäki-Vaarala-Hakunila-Tikkurila,,701,http://aikataulut.hsl.fi/linjat/fi/b717K.html
+4717N,HSL,717N,Rautatientori-Jakomäki-Hakunila-Nissas,,701,http://aikataulut.hsl.fi/linjat/fi/b717N.html
+4718,HSL,718,Rautatientori-Nissas,,701,http://aikataulut.hsl.fi/linjat/fi/b718.html
+4718A,HSL,718A,Rautatientori-Nissas-Sotunki,,701,http://aikataulut.hsl.fi/linjat/fi/b718A.html
+4719,HSL,719,Nybygget-Hakunila,,701,http://aikataulut.hsl.fi/linjat/fi/b719.html
+4719B,HSL,719B,Länsisalmi-Hakunila,,701,http://aikataulut.hsl.fi/linjat/fi/b719B.html
+4719K,HSL,719K,Nybygget-Länsisalmi-Hakunila,,701,http://aikataulut.hsl.fi/linjat/fi/b719K.html
+4721,HSL,721,Sörnäinen-Honkanummi-Havukoski-Päiväkumpu-Koivukylä,,701,http://aikataulut.hsl.fi/linjat/fi/b721.html
+4721N,HSL,721N,Rautatientori-Honkanummi-Havukoski-Päiväkumpu-Koivukylä,,701,http://aikataulut.hsl.fi/linjat/fi/b721N.html
+4723,HSL,723,Koivukylän palvelulinja,,704,https://www.hsl.fi/sites/default/files/uploads/hsl_lahibussi_723_web.pdf
+4724,HSL,724,Tikkurila-Jokiniemi-Havukoski-Päiväkumpu,,701,http://aikataulut.hsl.fi/linjat/fi/b724.html
+4731,HSL,731,Sörnäinen-Korso-Kulomäki,,701,http://aikataulut.hsl.fi/linjat/fi/b731.html
+4731N,HSL,731N,Rautatientori-Kulomäki,,701,http://aikataulut.hsl.fi/linjat/fi/b731N.html
+4734,HSL,734,Jokivarsi-Korso,,701,http://aikataulut.hsl.fi/linjat/fi/b734.html
+4735,HSL,735,Tikkurila-Korso-Mikkola,,701,http://aikataulut.hsl.fi/linjat/fi/b735.html
+4736,HSL,736,Tikkurila-Sotunki-Nikinmäki-Leppäkorpi-Korso,,701,http://aikataulut.hsl.fi/linjat/fi/b736.html
+4736B,HSL,736B,Nikinmäki-Leppäkorpi-Korso,,701,http://aikataulut.hsl.fi/linjat/fi/b736B.html
+4737,HSL,737,Pohjois-Nikinmäki-Nikinmäki-Mikkola-Korso,,701,http://aikataulut.hsl.fi/linjat/fi/b737.html
+4737K,HSL,737K,Pohjois-Nikinmäki-Nikinmäki-Jokivarsi-Mikkola-Korso,,701,http://aikataulut.hsl.fi/linjat/fi/b737K.html
+4739,HSL,739,Rautatientori-Kuninkaanmäki-Nikinmäk-Korso,,701,http://aikataulut.hsl.fi/linjat/fi/b739.html
+5520,HSL,520,Matinkylä (M)-Suurpelto-Leppävaara-Myyrmäki-Martinlaakso,,702,http://aikataulut.hsl.fi/linjat/fi/b520.html
+5520N,HSL,520N,Matinkylä (M)-Suurpelto-Leppävaara-Myyrmäki-Martinlaakso,,701,http://aikataulut.hsl.fi/linjat/fi/b520N.html
+5530,HSL,530,Matinkylä (M)-Finnoo (M)-Espoon keskus-Myyrmäki,,702,http://aikataulut.hsl.fi/linjat/fi/b530.html
+5530N,HSL,530N,Matinkylä (M)-Finnoo (M)-Espoon keskus-Myyrmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b530N.html
+5566,HSL,566,Martinlaakso-Järvenperä-Espoon keskus,,701,http://aikataulut.hsl.fi/linjat/fi/b566.html
+5583,HSL,583,Aviapolis-Louhela-Perusmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b583.html
+5583K,HSL,583K,Aviapolis-Louhela-Perusmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b583K.html
+5584,HSL,584,Aviapolis-Louhela-Kalajärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b584.html
+5584T,HSL,584T,Kalajärvi-Louhela-Helsinge skola,,701,http://aikataulut.hsl.fi/linjat/fi/b584T.html
+6171,HSL,171,Matinkylä (M)-Masala-Kirkkonummi,,701,http://aikataulut.hsl.fi/linjat/fi/b171.html
+6171B,HSL,171B,Kirkkonummi - Gesterby,,701,http://aikataulut.hsl.fi/linjat/fi/b171B.html
+6171Z,HSL,171Z,Matinkylä (M)-Gesterby-Kirkkonummi,,701,http://aikataulut.hsl.fi/linjat/fi/b171Z.html
+6172,HSL,172,Matinkylä (M)-Masala-Kirkkonummi-Kantvik,,701,http://aikataulut.hsl.fi/linjat/fi/b172.html
+6173,HSL,173,Matinkylä (M)-Masala-Kirkkonummi-Upinniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b173.html
+6173N,HSL,173N,Kamppi-Masala-Kirkkonummi-Upinniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b173N.html
+6173Z,HSL,173Z,Matinkylä (M)-Kirkkonummi-Upinniemi,,701,http://aikataulut.hsl.fi/linjat/fi/b173Z.html
+6174Z,HSL,174Z,Kaislampi-Gesterby-Kivenlahti (M),,701,http://aikataulut.hsl.fi/linjat/fi/b174Z.html
+6175,HSL,175,Matinkylä (M)-Sarvvik-Masala-Jorvas,,701,http://aikataulut.hsl.fi/linjat/fi/b175.html
+6175K,HSL,175K,Luoma-Masala-Matinkylä (M),,701,http://aikataulut.hsl.fi/linjat/fi/b175K.html
+6175V,HSL,175V,Matinkylä (M)-Jorvas,,701,http://aikataulut.hsl.fi/linjat/fi/b175V.html
+6181,HSL,181,Kirkkonummi-Siuntio,,701,http://aikataulut.hsl.fi/linjat/fi/b181.html
+6182,HSL,182,Kirkkonummi-Siuntio,,701,http://aikataulut.hsl.fi/linjat/fi/b182.html
+6182A,HSL,182A,Kirkkonummi-Siuntio-Siuntion uimahalli,,701,http://aikataulut.hsl.fi/linjat/fi/b182A.html
+6182K,HSL,182K,Siuntio-Kirkkonummi,,701,http://aikataulut.hsl.fi/linjat/fi/b182K.html
+6183,HSL,183,Kirkkonummi-Överby-Störsvik-Siuntio,,701,http://aikataulut.hsl.fi/linjat/fi/b183.html
+6184,HSL,184,Kirkkonummi-Evitskog-Siuntion kk.-Siuntio,,701,http://aikataulut.hsl.fi/linjat/fi/b184.html
+6211E,HSL,211E,Leppävaara-Kauklahti,,701,http://aikataulut.hsl.fi/linjat/fi/b211E.html
+6211U,HSL,211U,Leppävaara-Kirkkonummi,,701,http://aikataulut.hsl.fi/linjat/fi/b211U.html
+6243,HSL,243,Espoon keskus-Muurala-Kolmperä-Kolmiranta-Veikkola,,701,http://aikataulut.hsl.fi/linjat/fi/b243.html
+6243V,HSL,243V,Espoon keskus-Muurala-Kolmperä-Veikkola,,701,http://aikataulut.hsl.fi/linjat/fi/b243V.html
+6249Y,HSL,249Y,Leppävaara-Kirkkonummi-Siuntio,,701,http://aikataulut.hsl.fi/linjat/fi/b249Y.html
+6901,HSL,901,Luoma-Masala-Jorvaksentie-Hirsala,,701,http://aikataulut.hsl.fi/linjat/fi/b901.html
+6901B,HSL,901B,Gesterby-Hirsala,,701,http://aikataulut.hsl.fi/linjat/fi/b901B.html
+6901K,HSL,901K,Luoma-Masala-Gesterby-Hirsala,,701,http://aikataulut.hsl.fi/linjat/fi/b901K.html
+6902,HSL,902,Kirkkonummi-Porkkala,,701,http://aikataulut.hsl.fi/linjat/fi/b902.html
+6902K,HSL,902K,Kirkkonummi-Gesterbynkaari-HeikkiläPorkkala,,701,http://aikataulut.hsl.fi/linjat/fi/b902K.html
+6903,HSL,903,Kirkkonummi-Hila,,701,http://aikataulut.hsl.fi/linjat/fi/b903.html
+6903K,HSL,903K,Kirkkonummi-Kantvik-Hila,,701,http://aikataulut.hsl.fi/linjat/fi/b903K.html
+6904,HSL,904,Kirkkonummi-Kyrkvalla-Kantvik,,701,http://aikataulut.hsl.fi/linjat/fi/b904.html
+6905,HSL,905,Pikkalan tehdas-Överby-Kirkkonummi,,701,http://aikataulut.hsl.fi/linjat/fi/b905.html
+6906,HSL,906,Luoma-Masala-Kauhala,,701,http://aikataulut.hsl.fi/linjat/fi/b906.html
+6907,HSL,907,Kirkkonummi-Veklahti-Lapinkylä-Veikkola,,701,http://aikataulut.hsl.fi/linjat/fi/b907.html
+6908,HSL,908,Kirkkonummi-Evitskog-Kylmälä-Veikkola-Kaislampi,,701,http://aikataulut.hsl.fi/linjat/fi/b908.html
+6908K,HSL,908K,Kirkkonummi-Evitskog-Kylmälä-Veikkola-Kaislampi,,701,http://aikataulut.hsl.fi/linjat/fi/b908K.html
+6909,HSL,909,Veikkola-Lapinkylä-Kauhala,,701,http://aikataulut.hsl.fi/linjat/fi/b909.html
+6909K,HSL,909K,Veikkola-Lapinkylä-Oitmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b909K.html
+6911,HSL,911,Kauklahti-Masala-Kirkkonummi,,701,http://aikataulut.hsl.fi/linjat/fi/b911.html
+6912,HSL,912,Pikkala-Kuntakeskus,,704,http://aikataulut.hsl.fi/linjat/fi/b912.html
+6912K,HSL,912K,Pikkala-Böle-Störsvik-Siuntio,,704,http://aikataulut.hsl.fi/linjat/fi/b912K.html
+6913A,HSL,913A,Kuntakeskus-Västerby-Karskog-Kuntakeskus,,704,http://aikataulut.hsl.fi/linjat/fi/b913A.html
+6913B,HSL,913B,Kuntakeskus-Kela-Karskog-Västerby,,704,http://aikataulut.hsl.fi/linjat/fi/b913B.html
+6914,HSL,914,Kuntakeskus- Siuntion kk.-Raivio-Bocksintie,,704,http://aikataulut.hsl.fi/linjat/fi/b914.html
+6914T,HSL,914T,Kuntakeskus- Siuntion kk.-Bocksintie,,704,http://aikataulut.hsl.fi/linjat/fi/b914T.html
+6915A,HSL,915A,Kuntakeskus-Siuntion kk.-Järvinummi-Kuntakeskus,,704,http://aikataulut.hsl.fi/linjat/fi/b915A.html
+6915B,HSL,915B,Kuntakeskus-Siuntion kylpylä-Siuntion kk.-Annila-Järvinummi,,704,http://aikataulut.hsl.fi/linjat/fi/b915B.html
+6915T,HSL,915T,Kuntakeskus-Siuntion kk.-Järvinummi-Kahvimaa,,704,http://aikataulut.hsl.fi/linjat/fi/b915T.html
+6916,HSL,916,Kuntakeskus-Siuntion kk.-Suitia-Pauni,,704,http://aikataulut.hsl.fi/linjat/fi/b916.html
+6916K,HSL,916K,Kuntakeskus-Siuntion uimahalli-Siuntion kk.-Suitia-Pauni,,704,http://aikataulut.hsl.fi/linjat/fi/b916K.html
+6917,HSL,917,Kuntakeskus-Siuntion kk.-Vejans-Hästböle-Kuntakeskus,,704,http://aikataulut.hsl.fi/linjat/fi/b917.html
+7191,HSL,191,Kirkkonummi-Pikkala th.(-Inkoo),,700,http://aikataulut.hsl.fi/linjat/fi/b191.html
+7191A,HSL,191A,Matinkylä-Kirkkonummi-Pikkala th.,,700,http://aikataulut.hsl.fi/linjat/fi/b191A.html
+7192,HSL,192,Kamppi-Länsiväylä(-Inkoo),,700,http://aikataulut.hsl.fi/linjat/fi/b192.html
+7192KM,HSL,192KM,Kamppi-Länsiväylä-Kirkkonummen asema(-Inkoo),,700,http://aikataulut.hsl.fi/linjat/fi/b192KM.html
+7192M,HSL,192M,(Inkoo-)Länsiväylä-Kamppi,,700,http://aikataulut.hsl.fi/linjat/fi/b192M.html
+7192V,HSL,192V,Kamppi-Länsiväylä(-Inkoo),,700,http://aikataulut.hsl.fi/linjat/fi/b192V.html
+7193B,HSL,193B,Degerbyntie-Siuntion mh.-Siuntion kk.,,700,http://aikataulut.hsl.fi/linjat/fi/b193B.html
+7193V,HSL,193V,Degerbyntie-Siuntion as.-Nysvidja,,700,http://aikataulut.hsl.fi/linjat/fi/b193V.html
+7193VK,HSL,193VK,Degerbyntie-Siuntion as.-Nysvidja,,700,http://aikataulut.hsl.fi/linjat/fi/b193VK.html
+7194,HSL,194,Kuntakeskus-Siuntion matkahuolto-Uusikylä(-Lohja),,700,http://aikataulut.hsl.fi/linjat/fi/b194.html
+7194K,HSL,194K,Uusikylä-Suitia-Siuntio kk.-Siuntio uimahalli-Siuntion asema,,700,http://aikataulut.hsl.fi/linjat/fi/b194K.html
+7194V,HSL,194V,Siuntion matkahuolto-Lappers-Nysvidja(-Virkkala-Lohja),,700,http://aikataulut.hsl.fi/linjat/fi/b194V.html
+7194VK,HSL,194VK,Nysvidja-Evitskog-Siuntion matkahuolto,,700,http://aikataulut.hsl.fi/linjat/fi/b194VK.html
+7194VT,HSL,194VT,Nysvidja-Siuntio as.-Evitskog,,700,http://aikataulut.hsl.fi/linjat/fi/b194VT.html
+7195K,HSL,195K,Överby-Sunnanvik-Siuntion mh.-Uimahalli-Uusikylä(-Lohja),,700,http://aikataulut.hsl.fi/linjat/fi/b195K.html
+7195V,HSL,195V,Nysvidja-Lappers-Siuntio matkahuolto-Broända-Överby,,700,http://aikataulut.hsl.fi/linjat/fi/b195V.html
+7275,HSL,275,Leppävaara-Nihtisilta-Turunväylä-Veikkola,,700,http://aikataulut.hsl.fi/linjat/fi/b275.html
+7280,HSL,280,Kamppi-Turunväylä-Veikkola-,,700,http://aikataulut.hsl.fi/linjat/fi/b280.html
+7280A,HSL,280A,Kamppi-Turunväylä-Veikkola-(Kalkkimäki),,700,http://aikataulut.hsl.fi/linjat/fi/b280A.html
+7282,HSL,282,Kamppi-Turunväylä-Veikkola-(Lohja),,700,http://aikataulut.hsl.fi/linjat/fi/b282.html
+7282B,HSL,282B,Kamppi-Turunväylä-Veikkola-(Lohja),,700,http://aikataulut.hsl.fi/linjat/fi/b282B.html
+7285,HSL,285,Kamppi-Turunväylä-Veikkola-(Karkkila),,700,http://aikataulut.hsl.fi/linjat/fi/b285.html
+7375,HSL,375,Myyrmäki-Kalajärvi-(Vihti),,700,http://aikataulut.hsl.fi/linjat/fi/b375.html
+7375V,HSL,375V,Myyrmäki-Kalajärvi-(Vihti),,700,http://aikataulut.hsl.fi/linjat/fi/b375V.html
+7385,HSL,385,Helsinki-Kalajärvi-(Karkkila),,700,http://aikataulut.hsl.fi/linjat/fi/b385.html
+7385A,HSL,385A,(Karkkila/Vihti)-Kalajärvi-Helsinki,,700,http://aikataulut.hsl.fi/linjat/fi/b385A.html
+7455,HSL,455,Kamppi-Kivistö as.-Luhtaanmäki(-Klaukkala),,700,http://aikataulut.hsl.fi/linjat/fi/u_455-487.html
+7455A,HSL,455A,Kamppi-Kivistö as.-Luhtaanmäki(-Klaukkala-Mäntysalo),,700,http://aikataulut.hsl.fi/linjat/fi/u_455-487.html
+7456,HSL,456,Kamppi-Kivistö as.-Luhtaanmäki(-Klaukkala-Nurmijärvi),,700,http://aikataulut.hsl.fi/linjat/fi/u_455-487.html
+7456A,HSL,456A,Kamppi-Kivistö as.-Luhtaanmäki (-Klaukkala-Rajamäki),,700,http://aikataulut.hsl.fi/linjat/fi/u_455-487.html
+7456N,HSL,456N,Kamppi-Kivistö as.-Luhtaanmäki (-Klaukkala-Rajamäki),,700,http://aikataulut.hsl.fi/linjat/fi/u_455-487.html
+7457,HSL,457,Kamppi-Kivistö as.-Luhtaanmäki(-Klaukkala-Rajamäki),,700,http://aikataulut.hsl.fi/linjat/fi/u_455-487.html
+7457A,HSL,457A,Kamppi-Kivistö as.-Luhtaanmäki(-Klaukkala-Nurmijärvi),,700,http://aikataulut.hsl.fi/linjat/fi/u_455-487.html
+7465,HSL,465,Kamppi-Kivistö as.-Syväoja(-Nurmijärvi-Rajamäki),,700,http://aikataulut.hsl.fi/linjat/fi/u_465_485.html
+7465B,HSL,465B,Kamppi-Kivistö as.-Syväoja(-Nurmijärvi),,700,http://aikataulut.hsl.fi/linjat/fi/u_465_485.html
+7848,HSL,848,Töölöntulli-Pasila-Viikki-Söderkulla-Porvoo,,700,http://aikataulut.hsl.fi/linjat/fi/b848.html
+7848A,HSL,848A,Kamppi-Pasila-Viikki-Söderkulla-Porvoo,,700,http://aikataulut.hsl.fi/linjat/fi/b848A.html
+7849,HSL,849,Kamppi-Viikki-Söderkulla-Porvoo,,700,http://aikataulut.hsl.fi/linjat/fi/b849.html
+7899,HSL,899,Tikkurila-Kuusijärvi-Nikkilä-Mellunmäki,,700,http://aikataulut.hsl.fi/linjat/fi/b899.html
+7949,HSL,949,(Klaukkala-) Hännikäinen-Lahnus-Kalajärvi,,700,http://aikataulut.hsl.fi/linjat/fi/b949.html
+7949K,HSL,949K,(Klaukkala-)Hännikäinen-Korpilampi-Kalajärvi,,700,http://aikataulut.hsl.fi/linjat/fi/b949K.html
+7999,HSL,999,Tikkurila-Söderkulla-Porvoo,,700,http://aikataulut.hsl.fi/linjat/fi/b999.html
+9633N,HSL,633N,Rautatientori-Simonkylä-Leinelä-Korso-Ahjo-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b633N.html
+9641,HSL,641,Tikkurila-Leinelä-Hyrylä-Kerava,,701,http://aikataulut.hsl.fi/linjat/fi/b641.html
+9642,HSL,642,Leinelä-Lahela-Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b642.html
+9642K,HSL,642K,Leinelä-Ruotsinkylä-Lahela-Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b642K.html
+9643,HSL,643,Sörnäinen-Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b643.html
+9643K,HSL,643K,Sörnäinen-Ruskeasanta-Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b643K.html
+9643N,HSL,643N,Rautatientori-Hyrylä-Lahela,,701,http://aikataulut.hsl.fi/linjat/fi/b643N.html
+9665,HSL,665,Hyrylä-Järvenpää-Kellokoski,,701,http://aikataulut.hsl.fi/linjat/fi/b665.html
+9665A,HSL,665A,Hyrylä-Järvenpää-Kellokoski(-Mäntsälä),,701,http://aikataulut.hsl.fi/linjat/fi/b665A.html
+9665K,HSL,665K,Hyrylä-Järvenpää-Jamppa-Kellokoski,,701,http://aikataulut.hsl.fi/linjat/fi/b665K.html
+9665N,HSL,665N,Rautatientori-Hyrylä-Järvenpää-Jamppa-Kellokoski,,701,http://aikataulut.hsl.fi/linjat/fi/b665N.html
+9738,HSL,738,Kalasatama (M)-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b738.html
+9785,HSL,785,Rautatientori-Jokivarsi-Nikkilä,,701,http://aikataulut.hsl.fi/linjat/fi/b785.html
+9785K,HSL,785K,Rautatientori-Kuninkaanmäki-Nikkilä,,701,http://aikataulut.hsl.fi/linjat/fi/b785K.html
+9787,HSL,787,Rautatientori-Nikinmäki-Nikkilä-Pornainen,,701,http://aikataulut.hsl.fi/linjat/fi/b787.html
+9787A,HSL,787A,Rautatientori-Nikinmäki-Nikkilä-Laukkoski-Pornainen-Halkia,,701,http://aikataulut.hsl.fi/linjat/fi/b787A.html
+9787B,HSL,787B,Nikkilä-Pornainen,,701,http://aikataulut.hsl.fi/linjat/fi/b787B.html
+9787K,HSL,787K,Rautatientori-Kuninkaanmäki-Nikkilä-Pornainen,,701,http://aikataulut.hsl.fi/linjat/fi/b787K.html
+9788,HSL,788,Rautatientori-Jokivarsi-Nikkilä-Hinthaara-Porvoo,,701,http://aikataulut.hsl.fi/linjat/fi/b788.html
+9788B,HSL,788B,Nikkilä-Hinthaara-Porvoo,,701,http://aikataulut.hsl.fi/linjat/fi/b788B.html
+9788K,HSL,788K,Rautatientori-Kuninkaanmäki-Nikkilä-Hinthaara-Porvoo,,701,http://aikataulut.hsl.fi/linjat/fi/b788K.html
+9841,HSL,841,Itäkeskus-Östersundom-Söderkulla-Nikkilä,,701,http://aikataulut.hsl.fi/linjat/fi/b841.html
+9841B,HSL,841B,Söderkulla-Nikkilä,,701,http://aikataulut.hsl.fi/linjat/fi/b841B.html
+9841N,HSL,841N,Rautatientori-Östersundom-Söderkulla-Nikkilä-Jokimäki,,701,http://aikataulut.hsl.fi/linjat/fi/b841N.html
+9842,HSL,842,Itäkeskus–Söderkulla–Eriksnäs,,701,http://aikataulut.hsl.fi/linjat/fi/b842.html
+9843,HSL,843,Itäkeskus–Söderkulla–Kalkkiranta,,701,http://aikataulut.hsl.fi/linjat/fi/b843.html
+9844,HSL,844,Itäkeskus–Söderkulla–Taasjärvi,,701,http://aikataulut.hsl.fi/linjat/fi/b844.html
+9961,HSL,961,Korso-Sula-Riihikallio-Hyrylä-Nahkela-Palojoki(-Nurmijärvi),,701,http://aikataulut.hsl.fi/linjat/fi/b961.html
+9961B,HSL,961B,Korso-Sula-Riihikallio-Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b961B.html
+9962,HSL,962,Hyrylä-Sula-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b962.html
+9963,HSL,963,Paijala-Hyrylä-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b963.html
+9963B,HSL,963B,Hyrylä-Rykmentinpuisto-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b963B.html
+9964,HSL,964,Hyrylä-Paijala-Rusutjärvi-Rannikonmäki,,701,http://aikataulut.hsl.fi/linjat/fi/b964.html
+9964K,HSL,964K,Rannikonmäki-Rusutjärvi-Paijala-Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b964K.html
+9965,HSL,965,Hyrylä-Jäniksenlinna-Perttu-Jokela,,701,http://aikataulut.hsl.fi/linjat/fi/b965.html
+9965K,HSL,965K,Hyrylä-Jäniksenlinna-Perttu-Jokela,,701,http://aikataulut.hsl.fi/linjat/fi/b965K.html
+9965T,HSL,965T,Hyrylä-Rusutjärvi-Jäniksenlinna-Perttu-Jokela,,701,http://aikataulut.hsl.fi/linjat/fi/b965T.html
+9966,HSL,966,Jokela-Vanhakylän koulu - Saunakallio -Terrisuo,,701,http://aikataulut.hsl.fi/linjat/fi/b966.html
+9967,HSL,967,Jokela-Nuppulinna-Linjamäki-Kellokoski,,701,http://aikataulut.hsl.fi/linjat/fi/b967.html
+9967K,HSL,967K,Jokela-Nuppulinna-Purola-Linjamäki-Kellokoski,,701,http://aikataulut.hsl.fi/linjat/fi/b967K.html
+9968,HSL,968,Hyrylä-Paijala-Ruskela-Sahatie-Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b968.html
+9969X,HSL,969X,Kerava-Ainola-Järvenpää-Saunakallio-Jokela-Riihimäki,,701,http://aikataulut.hsl.fi/linjat/fi/b969X.html
+9971,HSL,971,Kivistö-Ruotsinkylä-Hyrylä-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b971.html
+9971B,HSL,971B,Ruotsinkylä-Hyrylä-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b971B.html
+9972,HSL,972,Korso-Alikerava-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b972.html
+9973,HSL,973,Peijas-Korso-Kannisto-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b973.html
+9975,HSL,975,Kerava as.- Kaleva - Mattilanpuisto,,701,http://aikataulut.hsl.fi/linjat/fi/b975.html
+9975N,HSL,975N,Keravan asema - Kaleva - Hyrylä,,701,http://aikataulut.hsl.fi/linjat/fi/b975N.html
+9976,HSL,976,Keravan asema-Virrenkulma,,701,http://aikataulut.hsl.fi/linjat/fi/b976.html
+9977,HSL,977,Kytömaa-Päivölä-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b977.html
+9977V,HSL,977V,Kytömaa-Ylikerava-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b977V.html
+9978,HSL,978,Keinukallio-Sorsakorpi-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b978.html
+9978K,HSL,978K,Bastukärr-Sorsakorpi-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b978K.html
+9982,HSL,982,Nikkilä-Neulasniitty-Talma,,701,http://aikataulut.hsl.fi/linjat/fi/b982.html
+9984,HSL,984,Hindsby (Knuters)-Nikkilä-Talma,,701,http://aikataulut.hsl.fi/linjat/fi/b984.html
+9984K,HSL,984K,Hindsby (Knuters)-Nikkilä- Mårsbackantie-Talma,,701,http://aikataulut.hsl.fi/linjat/fi/b984K.html
+9985,HSL,985,Nikkilä-Talma-Keravan asema,,701,http://aikataulut.hsl.fi/linjat/fi/b985.html
+9986,HSL,986,Nikkilä-Etelä-Paippinen-Järvenpään asema,,701,http://aikataulut.hsl.fi/linjat/fi/si986.html
+9986B,HSL,986B,Nikkilä-Etelä-Paippinen-Rajakulma,,701,http://aikataulut.hsl.fi/linjat/fi/si986.html
+9987,HSL,987,Nikkilä-Pornainen-Pohjois-Paippinen-Järvenpään asema,,701,http://aikataulut.hsl.fi/linjat/fi/b987.html
+9987A,HSL,987A,Monninkylä-Pornainen-Järvenpää,,701,http://aikataulut.hsl.fi/linjat/fi/b987A.html
+9987B,HSL,987B,Nikkilä-Laukkoski-Pornainen,,701,http://aikataulut.hsl.fi/linjat/fi/b987B.html
+9987T,HSL,987T,Nikkilä-Laukkoski-Pornainen-Pohjois-Paippinen-Järvenpää,,701,http://aikataulut.hsl.fi/linjat/fi/b987T.html
+9989,HSL,989,Pornainen-Halkia-Metsäkylä-Järvenpää,,701,https://www.hsl.fi/sites/default/files/uploads/sipoo-21_sivua.pdf
+9989A,HSL,989A,Monninkylä-Pornainen-Halkia-Metsäkylä-Järvenpää,,701,https://www.hsl.fi/sites/default/files/uploads/sipoo-21_sivua.pdf
+9989B,HSL,989B,Pornainen-Halkia-Pihlajamäki,,701,https://www.hsl.fi/sites/default/files/uploads/sipoo-21_sivua.pdf
+9989V,HSL,989V,Monninkylä-Pornainen-Metsäkylä,,701,https://www.hsl.fi/sites/default/files/uploads/sipoo-21_sivua.pdf
+9992,HSL,992,Eriksnäs-Söderkulla-Massby-Hindsby-Nikkilä,,701,http://aikataulut.hsl.fi/linjat/fi/b992.html
+9993,HSL,993,Taasjärvi-Söderkulla-Box-Gesterby-Nikkilä,,701,http://aikataulut.hsl.fi/linjat/fi/b993.html
+9993K,HSL,993K,Taasjärvi-Söderkulla-Box-Gesterby-Nikkilä,,701,http://aikataulut.hsl.fi/linjat/fi/b993K.html
+9994,HSL,994,Söderkulla-Immersby-Gumbostrand,,701,http://aikataulut.hsl.fi/linjat/fi/b994.html
+9994K,HSL,994K,Söderkulla-Gumbostrand,,701,http://aikataulut.hsl.fi/linjat/fi/b994K.html
+9995,HSL,995,Taasjärvi-Söderkulla-Kalkkiranta,,701,http://aikataulut.hsl.fi/linjat/fi/b995.html
+9996,HSL,996,Söderkulla-Box-Spjutsund-Kitö,,701,http://aikataulut.hsl.fi/linjat/fi/b996.html

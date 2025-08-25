@@ -1,0 +1,3 @@
+https://www.avoindata.fi/data/fi/dataset/hsl-reittiopas-api/resource/c0876e0b-c35c-473a-adae-810bc5588df1
+http://dev.hsl.fi/gtfs/hsl.zip
+

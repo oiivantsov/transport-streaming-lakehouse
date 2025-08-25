@@ -1,0 +1,54 @@
+{
+  "id": null,
+  "uid": "hsl-rt-dashboard",
+  "title": "HSL Real-Time Metrics",
+  "tags": ["prometheus", "spark", "hsl"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 2,
+  "refresh": "10s",
+  "templating": {
+    "list": [
+      {
+        "name": "route",
+        "type": "query",
+        "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+        "query": "label_values(active_vehicles_total, route_id)",
+        "includeAll": true,
+        "allValue": ".*",
+        "refresh": 1
+      }
+    ]
+  },
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Active Vehicles by Route",
+      "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+      "targets": [
+        { "expr": "active_vehicles_total{route_id=~\"$route\"}", "legendFormat": "{{route_id}}", "refId": "A" }
+      ],
+      "gridPos": { "h": 9, "w": 8, "x": 0, "y": 0 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Average Speed (km/h) by Route",
+      "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+      "targets": [
+        { "expr": "avg_speed_kmh_by_route{route_id=~\"$route\"}", "legendFormat": "{{route_id}}", "refId": "B" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "km/h", "decimals": 1 } },
+      "gridPos": { "h": 9, "w": 8, "x": 8, "y": 0 }
+    },
+    {
+      "type": "timeseries",
+      "title": "On-Time Ratio by Route",
+      "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+      "targets": [
+        { "expr": "on_time_ratio_by_route{route_id=~\"$route\"}", "legendFormat": "{{route_id}}", "refId": "C" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "percentunit", "decimals": 2 } },
+      "gridPos": { "h": 9, "w": 8, "x": 16, "y": 0 }
+    }
+  ]
+}
