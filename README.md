@@ -1,5 +1,7 @@
 # HSL Transport Streaming Lakehouse
 
+👉 [Jump straight to the Architecture Diagram](#architecture-and-workflow)
+
 ## Overview
 
 HSL (Helsingin seudun liikenne) is the Helsinki Regional Transport Authority, responsible for planning and operating public transport across the capital region of Finland (Helsinki, Espoo, Vantaa, and surrounding municipalities).
@@ -18,7 +20,7 @@ And to achieve this, I built a **streaming Lakehouse** with:
 * Trino for SQL queries
 * Prometheus + Grafana for monitoring and dashboards
 
-This project puts its main focus on Apache Spark and Delta Lakehouse. These technologies are also the core building blocks of the Databricks platform, and working with them directly helped me prepare for and pass the [**Databricks Data Engineer Associate exam**](https://www.databricks.com/certification/data-engineer-associate).
+This project puts its main focus on Apache Spark and Delta Lakehouse. These technologies are also the core building blocks of the Databricks platform, and working with them directly helped me prepare for and pass the [**Databricks Data Engineer Associate exam**](https://www.databricks.com/learn/certification/data-engineer-associate).
 
 ---
 
