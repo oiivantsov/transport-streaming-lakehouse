@@ -11,10 +11,10 @@ ssh_hook = SSHHook(
 
 SPARK_SUBMIT = "/spark/bin/spark-submit"
 COMMON_CONF = [
-    "--master", "spark://spark-master:7077",
-    "--conf", "spark.executor.memory=1g",
-    "--conf", "spark.executor.cores=1",
-    "--conf", "spark.cores.max=4",
+    "--master", "spark://spark-master:7077"
+    # "--conf", "spark.executor.memory=1g",
+    # "--conf", "spark.executor.cores=1",
+    # "--conf", "spark.cores.max=4",
 ]
 
 def make_spark_task(task_id: str, script_path: str) -> SSHOperator:
