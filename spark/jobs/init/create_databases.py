@@ -1,9 +1,16 @@
-from pyspark.sql import SparkSession
-from lib.spark_session import get_spark_session
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
-# Generate SparkSession
-spark: SparkSession = get_spark_session("Create Databases")
-print("SPARK_APP: Spark Session UI - "+ spark.sparkContext.uiWebUrl)
+from pyspark.sql import SparkSession
+
+spark = (
+    SparkSession
+    .builder
+    .appName("Create Databases")
+    .enableHiveSupport()
+    .getOrCreate()
+)
+
 
 spark.sql("create database if not exists hdw")
 spark.sql("create database if not exists hdw_stg")

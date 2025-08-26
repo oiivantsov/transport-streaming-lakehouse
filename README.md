@@ -121,50 +121,137 @@ If you want to know more about the underlying data definitions, see the official
 
 ---
 
-## Quickstart
+## How to run - Recommended Order
 
-1. **Start all services with Docker Compose**
+⚠️ **Note**: This project was originally designed for a single machine. Running all services at once with
+`docker compose up` may overload your system. Instead, it’s better to start services gradually.
+
+### 0. Configure AWS credentials & S3 bucket
+
+1. **Create an S3 bucket** (must be globally unique). Example:
 
    ```bash
-   docker compose up --build
+   aws s3 mb s3://my-hsl-lakehouse-bucket
    ```
 
-   This will build custom images (Airflow, Spark, Hive Metastore, Trino) and start all containers (Kafka, Prometheus, Grafana, Postgres, etc.).
+   Replace `my-hsl-lakehouse-bucket` with your own unique name.
 
-2. **Wait until services are ready**
+2. **Add AWS credentials** to `./aws/credentials` and `./aws/config`:
 
-   * Airflow webserver → `http://localhost:8080` (user: `airflow`, pass: `airflow`)
-   * Spark master UI → `http://localhost:8081`
-   * Grafana → `http://localhost:3000` (user: `admin`, pass: `admin`)
-   * See [UIs](#uis) section for full list.
+   ```
+   [default]
+   aws_access_key_id=YOUR_KEY
+   aws_secret_access_key=YOUR_SECRET
+   region=eu-north-1
+   ```
 
-3. **Run initial setup**
+3. **Update Spark configuration** (`spark/Dockerfile`) – set the default bucket name:
 
-   * Airflow will auto-initialize on first run (`airflow-init` service).
-   * Spark job `spark-db-init` will create the required Delta databases (`hdw_ld`, `hdw_stg`, `hdw`) and control tables.
+   ```dockerfile
+   ENV S3_BUCKET=my-hsl-lakehouse-bucket
+   ```
 
-4. **Start the pipeline**
+4. **Update Hive Metastore configuration** (`hive-metastore/hive-site.xml`) – point to the same S3 bucket:
 
-   * The **producer** (`hsl-transport-service`) will push HSL MQTT messages into Kafka.
-   * Spark streaming jobs (`hsl-spark-streaming-landing`, `hsl-spark-streaming-metrics`) will consume data, write to Delta Lake, and expose metrics to Prometheus.
-   * Batch jobs (triggered in Airflow) will move data from Bronze → Silver → Gold.
+   ```xml
+    <property>
+      <name>hive.metastore.warehouse.dir</name>
+      <value>s3a://my-hsl-lakehouse-bucket/warehouse</value>
+    </property>
+   ```
 
-5. **Explore the system**
+This ensures Spark, Hive Metastore, and downstream jobs all write to the same S3 bucket.
 
-   * Query Delta tables in **Trino** using **CloudBeaver** (`http://localhost:8978`) – convenient SQL client for Trino.
-   * Manage and inspect the **PostgreSQL** metadata database with **pgAdmin** (`http://localhost:5050`).
-   * Open **Grafana** (`http://localhost:3000`) for real-time dashboards.
+---
 
+### 1. Start Spark cluster
 
-## UIs
+```bash
+docker compose up -d spark-master spark-worker
+```
 
-* Airflow `http://localhost:8080` — username: `airflow`, password: `airflow`
-* Spark UI (master) `http://localhost:8081` — no auth
-* Grafana `http://localhost:3000` — username: `admin`, password: `admin`
-* Prometheus `http://localhost:9090` — no auth
-* Trino `http://localhost:8083` — no auth (connect via Hive catalog)
-* pgAdmin `http://localhost:5050` — email: `admin@admin.com`, password: `admin`
-* CloudBeaver `http://localhost:8978` — no auth on first login, workspace persisted in volume
+* Spark Master UI → [http://localhost:8081](http://localhost:8081)
+
+---
+
+### 2. Start core services
+
+```bash
+docker compose up -d zookeeper kafka grafana prometheus postgres hive-metastore dbeaver trino pgadmin airflow-webserver airflow-scheduler airflow-init
+```
+
+* Kafka → `localhost:9092`
+* Prometheus → [http://localhost:9090](http://localhost:9090)
+* Grafana → [http://localhost:3000](http://localhost:3000) (user: `admin`, pass: `admin`)
+* Airflow → [http://localhost:8080](http://localhost:8080) (user: `airflow`, pass: `airflow`)
+* Trino (via CloudBeaver) → [http://localhost:8978](http://localhost:8978)
+* PostgreSQL (via pgAdmin) → [http://localhost:5050](http://localhost:5050)
+
+`airflow-webserver` may be needed to re-run
+
+---
+
+### 3. Initialize Delta databases
+
+Run short Spark job once (no need to repeat):
+
+```bash
+docker compose up spark-db-init
+```
+
+* Creates the required Delta databases (hdw_ld, hdw_stg, hdw)
+* Initializes control tables (used by batch ETL jobs and Airflow DAGs)
+* Ensures the S3 warehouse folder structure exists
+
+---
+
+### 4. Start real-time ingestion
+
+```bash
+docker compose up -d hsl-transport-service
+```
+
+* Produces HSL events via MQTT → Kafka collects them into `hsl_stream` topic.
+* Monitor Kafka with Grafana dashboards.
+* You can also increase the velocity of events by decreasing the `TIME_SLEEP` parameter in [HSL producer script](/hsl-transport-service/hsl_producer.py)
+
+---
+
+### 5. Process landing layer
+
+Run Spark streaming job to collect some data, then stop:
+
+```bash
+docker compose up hsl-spark-streaming-landing
+```
+
+* Consumes Kafka events.
+* Stores them into **Delta Lake (Bronze)**.
+
+---
+
+### 6. Run real-time metrics
+
+```bash
+docker compose up hsl-spark-streaming-metrics
+```
+
+* Pushes metrics to **Prometheus**.
+* View live dashboards in **Grafana**.
+* Stop `hsl-spark-streaming-metrics` when done.
+
+---
+
+### 7. Batch processing (ETL)
+
+* Open **Airflow** → trigger DAGs to move data Bronze → Silver → Gold.
+
+---
+
+### 8. Explore the Data Warehouse
+
+* Open **CloudBeaver** → connect to **Trino** → query `hdw.gold_*` tables.
+* Explore PostgreSQL metadata in **pgAdmin**.
 
 ---
 

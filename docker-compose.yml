@@ -12,8 +12,6 @@ x-airflow-common:
     - ./airflow/data:/opt/airflow/data
     - ./airflow/logs:/opt/airflow/logs
     - ./airflow/utils:/opt/airflow/utils
-    - ./spark/jobs:/home/jobs
-    - delta_storage:/data
   depends_on:
     - postgres
 
@@ -31,8 +29,8 @@ services:
       - "4041:4041"
       - "4042:4042"
     volumes:
-      - delta_storage:/data
       - ./spark/jobs:/home/jobs
+      - ./aws:/root/.aws:ro
 
   spark-worker:
     build: ./spark
@@ -43,8 +41,8 @@ services:
     ports:
       - "8082:8081"   # Web UI Worker
     volumes:
-      - delta_storage:/data
       - ./spark/jobs:/home/jobs
+      - ./aws:/root/.aws:ro
 
   spark-db-init:
     build: ./spark
@@ -55,7 +53,7 @@ services:
       /home/jobs/init/create_databases.py
     volumes:
       - ./spark/jobs:/home/jobs
-      - delta_storage:/data
+      - ./aws:/root/.aws:ro
     depends_on:
       - spark-master
       - hive-metastore
@@ -71,7 +69,7 @@ services:
       /home/jobs/landing/events_landing.py
     volumes:
       - ./spark/jobs:/home/jobs
-      - delta_storage:/data
+      - ./aws:/root/.aws:ro
     depends_on:
       - spark-master
       - kafka
@@ -87,7 +85,7 @@ services:
       - "9108:9108"   # expose Prometheus endpoint
     volumes:
       - ./spark/jobs:/home/jobs
-      - delta_storage:/data
+      - ./aws:/root/.aws:ro
     depends_on:
       - spark-master
       - kafka
@@ -183,7 +181,7 @@ services:
     ports:
       - "9083:9083"
     volumes:
-      - delta_storage:/data
+      - ./aws:/root/.aws:ro
     depends_on:
       - postgres
 
@@ -205,7 +203,7 @@ services:
     ports:
       - "8083:8080"
     volumes:
-      - delta_storage:/data
+      - ./aws:/root/.aws:ro
     depends_on:
       - hive-metastore
 
@@ -236,7 +234,20 @@ services:
     <<: *airflow-common
     command: scheduler
 
+
+  # jupyter:
+  #   build: ./jupyter
+  #   container_name: jupyter
+  #   ports:
+  #     - "8888:8888"   # JupyterLab
+  #     # - "4040:4040"
+  #     # - "4041:4041"
+  #     # - "4042:4042"
+  #   volumes:
+  #     - ./jupyter/notebooks:/home/jupyter
+  #     - ./spark/jobs:/home/jupyter/jobs
+  #     - ./aws:/root/.aws:ro
+
 volumes:
-  delta_storage:
   postgres_data:
   dbeaver_data:
