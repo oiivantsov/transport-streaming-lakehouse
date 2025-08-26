@@ -38,10 +38,13 @@ RUN mv $SPARK_HOME/conf/log4j2.properties.template $SPARK_HOME/conf/log4j2.prope
  && mv $SPARK_HOME/conf/spark-env.sh.template $SPARK_HOME/conf/spark-env.sh
 
 # Spark defaults (Delta + Kafka + Postgres)
-RUN echo "spark.jars.packages io.delta:delta-spark_2.12:3.3.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5" >> $SPARK_HOME/conf/spark-defaults.conf && \
+RUN echo "spark.jars.packages io.delta:delta-spark_2.12:3.3.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5,org.postgresql:postgresql:42.6.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262" >> $SPARK_HOME/conf/spark-defaults.conf && \
     echo "spark.sql.extensions io.delta.sql.DeltaSparkSessionExtension" >> $SPARK_HOME/conf/spark-defaults.conf && \
     echo "spark.sql.catalog.spark_catalog org.apache.spark.sql.delta.catalog.DeltaCatalog" >> $SPARK_HOME/conf/spark-defaults.conf && \
-    echo "spark.sql.warehouse.dir file:///data/warehouse" >> $SPARK_HOME/conf/spark-defaults.conf
+    echo "spark.sql.warehouse.dir s3a://2025-lakehouse-oleg/warehouse" >> $SPARK_HOME/conf/spark-defaults.conf && \
+    echo "spark.hadoop.fs.s3a.endpoint=s3.eu-north-1.amazonaws.com" >> $SPARK_HOME/conf/spark-defaults.conf && \
+    echo "spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem" >> $SPARK_HOME/conf/spark-defaults.conf && \
+    echo "spark.hadoop.fs.s3a.aws.credentials.provider=com.amazonaws.auth.DefaultAWSCredentialsProviderChain" >> $SPARK_HOME/conf/spark-defaults.conf
 
 WORKDIR /home/spark
 

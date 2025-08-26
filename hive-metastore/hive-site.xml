@@ -34,7 +34,12 @@
 
   <property>
     <name>hive.metastore.warehouse.dir</name>
-    <value>/data/warehouse</value>
+    <value>s3a://2025-lakehouse-oleg/warehouse</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.aws.credentials.provider</name>
+    <value>com.amazonaws.auth.DefaultAWSCredentialsProviderChain</value>
   </property>
 
 </configuration>
