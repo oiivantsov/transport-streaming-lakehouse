@@ -199,6 +199,8 @@ Run short Spark job once (no need to repeat):
 docker compose up spark-db-init
 ```
 
+* Spark job UI → [http://localhost:4043](http://localhost:4043)
+
 * Creates the required Delta databases (hdw_ld, hdw_stg, hdw)
 * Initializes control tables (used by batch ETL jobs and Airflow DAGs)
 * Ensures the S3 warehouse folder structure exists
@@ -225,8 +227,14 @@ Run Spark streaming job to collect some data, then stop:
 docker compose up hsl-spark-streaming-landing
 ```
 
+* Spark job UI → [http://localhost:4044](http://localhost:4044)
+
 * Consumes Kafka events.
 * Stores them into **Delta Lake (Bronze)**.
+
+```bash
+docker compose down hsl-spark-streaming-landing
+```
 
 ---
 
@@ -236,9 +244,15 @@ docker compose up hsl-spark-streaming-landing
 docker compose up hsl-spark-streaming-metrics
 ```
 
+* Spark job UI → [http://localhost:4045](http://localhost:4045)
+
 * Pushes metrics to **Prometheus**.
 * View live dashboards in **Grafana**.
 * Stop `hsl-spark-streaming-metrics` when done.
+
+```bash
+docker compose down hsl-spark-streaming-metrics
+```
 
 ---
 

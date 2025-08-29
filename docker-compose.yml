@@ -50,7 +50,10 @@ services:
     command: >
       /spark/bin/spark-submit
       --master spark://spark-master:7077
+      --conf spark.ui.port=4043
       /home/jobs/init/create_databases.py
+    ports:
+      - "4043:4043"
     volumes:
       - ./spark/jobs:/home/jobs
       - ./aws:/root/.aws:ro
@@ -66,7 +69,10 @@ services:
     command: >
       /spark/bin/spark-submit
       --master spark://spark-master:7077
+      --conf spark.ui.port=4044
       /home/jobs/landing/events_landing.py
+    ports:
+      - "4044:4044"
     volumes:
       - ./spark/jobs:/home/jobs
       - ./aws:/root/.aws:ro
@@ -80,8 +86,10 @@ services:
     command: >
       /spark/bin/spark-submit
       --master spark://spark-master:7077
+      --conf spark.ui.port=4045
       /home/jobs/rt_metrics/stream_metrics.py
     ports:
+      - "4045:4045"
       - "9108:9108"   # expose Prometheus endpoint
     volumes:
       - ./spark/jobs:/home/jobs

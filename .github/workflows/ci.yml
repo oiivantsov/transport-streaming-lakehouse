@@ -1,0 +1,49 @@
+name: CI - Build and Test Core Services
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker images
+      run: docker compose build
+
+    - name: Start core services
+      run: |
+        docker compose up -d \
+          spark-master \
+          spark-worker \
+          zookeeper \
+          kafka \
+          grafana \
+          prometheus \
+          postgres \
+          hive-metastore \
+          dbeaver \
+          trino \
+          pgadmin \
+          hsl-transport-service
+        echo "Waiting for containers to initialize..."
+        sleep 30
+        docker ps -a
+
+    - name: Start services
+      run: |
+        docker compose up -d
+        sleep 20
+        docker ps
+
+    - name: Tear down services
+      run: docker compose down -v
