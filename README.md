@@ -2,8 +2,7 @@
 
 👉 [Jump straight to the Architecture Diagram](#architecture-and-workflow)
 
-- If you are interested in the data model, schemas, and storage design, see [**Data and Storage**](docs/data.md).  
-- If you want to learn more about processing logic, batch ETL, SCD2 dimensions, and real-time metrics, see [**Processing and Data Flow**](docs/processing.md).  
+> Detailed docs: [Data and Storage](docs/data.md) · [Processing and Data Flow](docs/processing.md)
 
 ---
 
