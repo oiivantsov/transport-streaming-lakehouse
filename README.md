@@ -158,7 +158,7 @@ In addition to batch ETL into Bronze, Silver, and Gold layers, the pipeline incl
 * **Metrics exposure** – the KPIs are published via the Python `prometheus_client` library on port `9108`.
 * **Dashboards** – Prometheus scrapes the metrics, and Grafana visualizes them in near real time.
 
-👉 Example dashboard:  
+Example dashboard:  
 ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
 This setup enables live operational monitoring, early anomaly detection, and seamless integration of business KPIs into the same Prometheus/Grafana stack already used for infrastructure monitoring.
