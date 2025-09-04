@@ -30,19 +30,25 @@ It illustrates how public transport events are ingested, stored, and transformed
 
 ## Medallion Architecture Overview
 
-The project follows the **Delta Lake Medallion pattern**:
+The project follows the **Delta Lake Medallion pattern** with three distinct pipelines that move data from **Bronze -> Silver -> Gold**:
 
-* **Bronze (Landing)** – append-only raw data from Kafka
-* **Silver (Staging)** – cleaned, deduplicated, and normalized data
-* **Gold (Warehouse)** – curated analytics layer (star schema)
+* **Events (fact table)**  
+  * **Bronze (Landing)** – continuous streaming ingestion from Kafka (raw JSON).  
+  * **Silver (Staging)** – batch job overwrites the table with flattened and cleaned data.  
+  * **Gold (Warehouse)** – batch job appends business-relevant records into `fact_vehicle_position`.
 
-Each layer has its own dedicated **database namespace** in Hive Metastore:
+* **Routes (dimension table)** and **Stops (dimension table)**  
+  * Entirely batch-driven, orchestrated via Airflow.  
+  * **Bronze** – raw load from GTFS text files (`routes.txt`, `stops.txt`).  
+  * **Silver** – data type conversions, cleanup, deduplication.  
+  * **Gold** – managed with SCD2 merges, preserving historical changes in `dim_routes` and `dim_stops`.
 
-* `hdw_ld` -> Landing layer
-* `hdw_stg` -> Staging layer
-* `hdw` -> Data Warehouse layer
+Each layer is maintained in a dedicated **Hive Metastore namespace**:  
+* `hdw_ld` -> Landing layer  
+* `hdw_stg` -> Staging layer  
+* `hdw` -> Data Warehouse layer  
 
-S3 is used as the **underlying object store**, with Delta Lake providing ACID transactions, schema enforcement, and time travel.
+All data is stored in **Amazon S3**, with **Delta Lake** providing ACID transactions, schema enforcement, and time travel.
 
 ---
 
