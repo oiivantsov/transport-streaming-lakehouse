@@ -31,10 +31,10 @@ ENV PATH=$PATH:$SPARK_HOME/bin
 
 # Download and setup Spark
 WORKDIR /tmp
-RUN wget https://archive.apache.org/dist/spark/spark-3.5.5/spark-3.5.5-bin-hadoop3.tgz \
- && tar -xvf spark-3.5.5-bin-hadoop3.tgz \
- && mv spark-3.5.5-bin-hadoop3 $SPARK_HOME \
- && rm spark-3.5.5-bin-hadoop3.tgz
+RUN wget https://dlcdn.apache.org/spark/spark-3.5.6/spark-3.5.6-bin-hadoop3.tgz \
+ && tar -xvf spark-3.5.6-bin-hadoop3.tgz \
+ && mv spark-3.5.6-bin-hadoop3 $SPARK_HOME \
+ && rm spark-3.5.6-bin-hadoop3.tgz
 
 # Configure Spark
 RUN mv $SPARK_HOME/conf/log4j2.properties.template $SPARK_HOME/conf/log4j2.properties \
@@ -42,7 +42,7 @@ RUN mv $SPARK_HOME/conf/log4j2.properties.template $SPARK_HOME/conf/log4j2.prope
  && mv $SPARK_HOME/conf/spark-env.sh.template $SPARK_HOME/conf/spark-env.sh
 
 # Spark defaults (Delta + Kafka + Postgres)
-RUN echo "spark.jars.packages io.delta:delta-spark_2.12:3.3.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5,org.postgresql:postgresql:42.6.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262" >> $SPARK_HOME/conf/spark-defaults.conf && \
+RUN echo "spark.jars.packages io.delta:delta-spark_2.12:3.3.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.6,org.postgresql:postgresql:42.6.0,org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262" >> $SPARK_HOME/conf/spark-defaults.conf && \
     echo "spark.sql.extensions io.delta.sql.DeltaSparkSessionExtension" >> $SPARK_HOME/conf/spark-defaults.conf && \
     echo "spark.sql.catalog.spark_catalog org.apache.spark.sql.delta.catalog.DeltaCatalog" >> $SPARK_HOME/conf/spark-defaults.conf && \
     echo "spark.sql.warehouse.dir s3a://$S3_BUCKET/warehouse" >> $SPARK_HOME/conf/spark-defaults.conf && \

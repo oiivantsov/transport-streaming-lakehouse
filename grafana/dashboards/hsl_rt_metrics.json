@@ -5,50 +5,38 @@
   "tags": ["prometheus", "spark", "hsl"],
   "timezone": "browser",
   "schemaVersion": 38,
-  "version": 2,
+  "version": 3,
   "refresh": "10s",
-  "templating": {
-    "list": [
-      {
-        "name": "route",
-        "type": "query",
-        "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
-        "query": "label_values(active_vehicles_total, route_id)",
-        "includeAll": true,
-        "allValue": ".*",
-        "refresh": 1
-      }
-    ]
-  },
   "panels": [
     {
       "type": "timeseries",
-      "title": "Active Vehicles by Route",
+      "title": "Total Active Vehicles",
       "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
       "targets": [
-        { "expr": "active_vehicles_total{route_id=~\"$route\"}", "legendFormat": "{{route_id}}", "refId": "A" }
+        { "expr": "total_active_vehicles", "legendFormat": "Total", "refId": "A" }
       ],
-      "gridPos": { "h": 9, "w": 8, "x": 0, "y": 0 }
+      "fieldConfig": { "defaults": { "unit": "short", "decimals": 0, "custom": { "shortUnitDisplay": "none" } } },
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 0 }
     },
     {
       "type": "timeseries",
-      "title": "Average Speed (km/h) by Route",
+      "title": "Average Speed (All Vehicles)",
       "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
       "targets": [
-        { "expr": "avg_speed_kmh_by_route{route_id=~\"$route\"}", "legendFormat": "{{route_id}}", "refId": "B" }
+        { "expr": "avg_speed_all", "legendFormat": "Avg Speed", "refId": "B" }
       ],
       "fieldConfig": { "defaults": { "unit": "km/h", "decimals": 1 } },
-      "gridPos": { "h": 9, "w": 8, "x": 8, "y": 0 }
+      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 0 }
     },
     {
       "type": "timeseries",
-      "title": "On-Time Ratio by Route",
+      "title": "Percentage of Routes On Time",
       "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
       "targets": [
-        { "expr": "on_time_ratio_by_route{route_id=~\"$route\"}", "legendFormat": "{{route_id}}", "refId": "C" }
+        { "expr": "pct_routes_on_time", "legendFormat": "On-Time %", "refId": "C" }
       ],
       "fieldConfig": { "defaults": { "unit": "percentunit", "decimals": 2 } },
-      "gridPos": { "h": 9, "w": 8, "x": 16, "y": 0 }
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 0 }
     }
   ]
 }

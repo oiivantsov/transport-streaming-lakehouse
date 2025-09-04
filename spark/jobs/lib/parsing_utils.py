@@ -90,7 +90,7 @@ vp_schema = StructType([
     StructField("line", IntegerType()),
     StructField("start", StringType()),
     StructField("loc", StringType()),
-    StructField("stop", LongType()),
+    StructField("stop", StringType()),
     StructField("route", StringType()),
     StructField("occu", IntegerType())
 ])

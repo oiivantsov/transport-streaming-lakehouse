@@ -9,7 +9,7 @@ from spark_conn_conf import make_spark_task
 default_args = {
     "owner": "OI",
     "start_date": datetime(2025, 4, 8),
-    "retries": 1,
+    # "retries": 1,
     "retry_delay": timedelta(seconds=300),
 }
 

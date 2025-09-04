@@ -63,10 +63,8 @@ print("SPARK_APP: Printing Staging Schema --")
 df_stg.printSchema()
 
 # Write to Staging (overwrite = truncate + reload)
-df_stg.write \
-    .format("delta") \
-    .mode("overwrite") \
-    .saveAsTable(table_full_name)
+spark.sql(f"DROP TABLE IF EXISTS {table_full_name}")
+df_stg.write.format("delta").saveAsTable(table_full_name)
 
 print("SPARK_APP: Data written to staging table")
 

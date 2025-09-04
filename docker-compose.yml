@@ -31,6 +31,8 @@ services:
     volumes:
       - ./spark/jobs:/home/jobs
       - ./aws:/root/.aws:ro
+      - ./aws:/home/sparkuser/.aws:ro
+      - checkpoint_data:/home/jobs/checkpoint_data
 
   spark-worker:
     build: ./spark
@@ -43,6 +45,8 @@ services:
     volumes:
       - ./spark/jobs:/home/jobs
       - ./aws:/root/.aws:ro
+      - ./aws:/home/sparkuser/.aws:ro
+      - checkpoint_data:/home/jobs/checkpoint_data
 
   spark-db-init:
     build: ./spark
@@ -76,6 +80,7 @@ services:
     volumes:
       - ./spark/jobs:/home/jobs
       - ./aws:/root/.aws:ro
+      - checkpoint_data:/home/jobs/checkpoint_data
     depends_on:
       - spark-master
       - kafka
@@ -86,14 +91,15 @@ services:
     command: >
       /spark/bin/spark-submit
       --master spark://spark-master:7077
-      --conf spark.ui.port=4045
+      --conf spark.ui.port=4046
       /home/jobs/rt_metrics/stream_metrics.py
     ports:
-      - "4045:4045"
+      - "4046:4046"
       - "9108:9108"   # expose Prometheus endpoint
     volumes:
       - ./spark/jobs:/home/jobs
       - ./aws:/root/.aws:ro
+      - checkpoint_data:/home/jobs/checkpoint_data
     depends_on:
       - spark-master
       - kafka
@@ -259,3 +265,4 @@ services:
 volumes:
   postgres_data:
   dbeaver_data:
+  checkpoint_data:

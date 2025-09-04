@@ -9,7 +9,7 @@ import socket
 TOPIC = "hsl_stream"
 PARTITIONS = 6   # adjust based on parallelism needs
 REPLICATION_FACTOR = 1  # in local/dev keep at 1
-TIME_SLEEP = 1 # Delay (in seconds) between producing consecutive messages to Kafka
+TIME_SLEEP = 0.1 # Delay (in seconds) between producing consecutive messages to Kafka
 
 def wait_for_kafka(host, port, timeout=60):
     start_time = time.time()

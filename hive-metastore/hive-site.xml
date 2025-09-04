@@ -34,7 +34,7 @@
 
   <property>
     <name>hive.metastore.warehouse.dir</name>
-    <value>s3a://2025-lakehouse-oleg/warehouse</value>
+    <value>s3a://my-hsl-lakehouse-bucket/warehouse</value>
   </property>
 
   <property>
