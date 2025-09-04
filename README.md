@@ -120,7 +120,10 @@ In addition to the Medallion data flow, the architecture also includes dedicated
   ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
 * **Monitoring and observability:**
-  - **Kafka** is monitored through JMX exporters, with metrics scraped by Prometheus and visualized in Grafana.  
+  - **Kafka** is monitored through JMX exporters, with metrics scraped by Prometheus and visualized in Grafana.
+
+    ![Kafka Dashboard Screenshot](/docs/img/kafka_monitoring.png)
+      
   - **Spark** provides its own monitoring via the **Spark UI** (per job/streaming application).  
 
 For cloud storage, this demo uses **Amazon S3**, but the same design works with old-school **HDFS** or other object stores such as **Azure Blob Storage** and **Google Cloud Storage (GCS)**, depending on the deployment environment.
