@@ -14,7 +14,6 @@
 - [Stack and Technologies](#stack-and-technologies)  
 - [Architecture and Workflow](#architecture-and-workflow)  
 - [Data Model and Warehouse](#data-model-and-warehouse)  
-- [Real-Time Streaming & Monitoring (Prometheus + Grafana)](#real-time-streaming--monitoring-prometheus--grafana)  
 - [How to run - Recommended Order](#how-to-run---recommended-order)  
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
@@ -97,13 +96,14 @@ The pipeline begins with **HSL Public Transport**, which publishes real-time veh
 From there, the data flows into multiple layers following the **Medallion Lakehouse architecture**:
 
 * **Bronze (Landing) – raw data ingestion:**
-  Spark Structured Streaming consumes Kafka events and appends them to the **Delta Lake landing layer**. At this stage, the data is raw and unprocessed, serving as a reliable source of truth. In parallel, another Spark job computes **real-time business metrics** (active vehicles, average speed, on-time ratio) and exposes them to **Prometheus**, with live dashboards in **Grafana**.
+  Spark Structured Streaming consumes Kafka events and appends them to the **Delta Lake landing layer**. At this stage, the data is raw and unprocessed, serving as a reliable source of truth.
 
 * **Silver (Staging) – cleaned and normalized data:**
   Batch jobs orchestrated by **Apache Airflow** overwrite the staging tables with cleaned, normalized data.
 
 * **Gold (Data Warehouse) – curated analytics layer:**
-  In the events pipeline, Spark jobs append fact records into the Gold layer partitioned by operational day. For dimension data, separate batch jobs perform **SCD2 merges** to manage historical changes (name updates, stop relocations, etc.).
+  In the events pipeline, Spark jobs **append fact records** into the Gold layer partitioned by operational day.  
+  For dimension data, separate batch jobs perform **SCD2 merges** to manage historical changes (name updates, stop relocations, etc.).
 
 * **Storage and metadata (Delta Lake + Hive Metastore):**
   All three layers (Bronze, Silver, Gold) are managed in **Delta Lake**, which provides ACID transactions, schema evolution, and time travel. The **Hive Metastore** (with PostgreSQL backend) maintains metadata, enabling query engines to access the tables.
@@ -111,8 +111,17 @@ From there, the data flows into multiple layers following the **Medallion Lakeho
 * **Query and analytics (Trino):**
   Analysts can query any layer (Bronze, Silver, or Gold) via **Trino**, which integrates with the Hive Metastore.
 
-* **Monitoring and observability (Prometheus + Grafana):**
-  Kafka broker metrics (via JMX exporter) and custom Spark streaming metrics are collected by **Prometheus** and visualized in **Grafana**. This provides end-to-end visibility into ingestion, processing, and transport KPIs.
+In addition to the Medallion data flow, the architecture also includes dedicated components for **real-time metrics** and **system monitoring**:
+
+* **Real-time metrics (Prometheus + Grafana):**
+  In parallel with landing ingestion, a dedicated Spark streaming job computes **business KPIs** (active vehicles, average speed, on-time ratio).  
+  These metrics are exposed via the Python `prometheus_client` library and scraped by **Prometheus**, then visualized in near real time with **Grafana** dashboards.
+
+  ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
+
+* **Monitoring and observability:**
+  - **Kafka** is monitored through JMX exporters, with metrics scraped by Prometheus and visualized in Grafana.  
+  - **Spark** provides its own monitoring via the **Spark UI** (per job/streaming application).  
 
 For cloud storage, this demo uses **Amazon S3**, but the same design works with old-school **HDFS** or other object stores such as **Azure Blob Storage** and **Google Cloud Storage (GCS)**, depending on the deployment environment.
 
@@ -158,22 +167,6 @@ If you want to know more about the underlying data definitions, see the official
 * [Extended route types](https://developers.google.com/transit/gtfs/reference/extended-route-types)
 
 For more details on the data flows, schemas, and transformations, see [Data and Storage](docs/data.md).
-
----
-
-## Real-Time Streaming & Monitoring (Prometheus + Grafana)
-
-In addition to batch ETL into Bronze, Silver, and Gold layers, the pipeline includes a real-time streaming component:
-
-* **Ingestion** – a custom Kafka producer consumes HSL’s MQTT feed (`mqtt.hsl.fi`) and pushes vehicle events into the `hsl_stream` topic.
-* **Processing** – Spark Structured Streaming groups events into sliding windows and computes global KPIs:
-  - **Total active vehicles**
-  - **Average speed**
-  - **On-time ratio** (share of events with delay <= 60s)
-* **Metrics exposure** – the KPIs are published via the Python `prometheus_client` library on port `9108`.
-* **Dashboards** – Prometheus scrapes the metrics, and Grafana visualizes them in near real time.
-
-![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
 ---
 
