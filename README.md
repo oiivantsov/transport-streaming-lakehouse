@@ -14,7 +14,8 @@
 - [Stack and Technologies](#stack-and-technologies)  
 - [Architecture and Workflow](#architecture-and-workflow)  
 - [Data Model and Warehouse](#data-model-and-warehouse)  
-- [How to run - Recommended Order](#how-to-run---recommended-order)  
+- [How to run - Recommended Order](#how-to-run---recommended-order)
+- [Scalability and Future Growth](#scalability-and-future-growth)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
 - [License](#license)  
@@ -316,6 +317,31 @@ docker compose down hsl-spark-streaming-metrics
 * Explore PostgreSQL metadata in **pgAdmin**.
 
 ---
+
+## Scalability and Future Growth
+
+This project is built as a technical demo, but the architecture is **scalable by design**.  
+Several clear growth paths exist:
+
+* **Cluster scaling**  
+  - The current Spark setup runs on Docker Compose, but scaling is best achieved by adding more Spark nodes.  
+  - In production, this would typically be managed via **Kubernetes**, enabling elastic resource allocation and auto-scaling.
+
+* **Data coverage**  
+  - At the moment, only **bus events** are ingested from HSL.  
+  - The pipeline can be extended to include **trams, metro, trains, and ferries**, greatly expanding the event volume.  
+  - Additional GTFS dimensions beyond routes and stops can also be integrated.
+
+* **Analytics potential**  
+  - With more data, advanced analytics use cases become possible:  
+    - **Geospatial queries** (vehicle positions, route coverage, hot-spot detection)  
+    - **Deviation analysis** (detecting off-route driving, unusual patterns)
+    - **Predictive modeling** (forecasting congestion, optimizing fleet allocation)
+
+This demonstrates how an open-source Lakehouse approach can grow into an enterprise-grade platform capable of processing tens of millions of events per day while supporting increasingly sophisticated analytics.
+
+---
+
 
 ## Feedback
 
