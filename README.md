@@ -33,7 +33,7 @@ This makes it a perfect use case for streaming pipelines, where both **real-time
 
 To address this challenge, I built a **streaming Lakehouse** on open-source technologies, including the following core components: **Kafka** (ingestion), **Spark** (streaming & batch), **Delta Lake + Hive** (storage & catalog), **Airflow** (orchestration), **Trino** (SQL), and **Prometheus + Grafana** (monitoring).
 
-This project puts its main focus on Apache Spark and Delta Lakehouse. These technologies are also the core building blocks of the Databricks platform, and working with them directly helped me prepare for and pass the [**Databricks Data Engineer Associate exam**](https://www.databricks.com/learn/certification/data-engineer-associate).
+As a result, this project delivers a practical, scalable, and open-source streaming Lakehouse solution that unifies real-time monitoring with historical analytics, while being reusable across industries and highly valuable for both operational efficiency and advanced data-driven innovation.
 
 ---
 
