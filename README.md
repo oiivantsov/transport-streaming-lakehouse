@@ -118,6 +118,10 @@ For cloud storage, this demo uses **Amazon S3**, but the same design works with 
 
 All services run in **Docker Compose**, making the setup reproducible locally while still following modern Lakehouse design principles.
 
+> **Note:** The diagram above illustrates the **events (fact) pipeline**, which processes real-time vehicle events from HSL feeds.  
+> In addition, the project includes two fully batch pipelines for dimension data (`stops` and `routes`).  
+> These are not shown here, as they are simpler batch processes orchestrated by Airflow, with Bronze ingestion from GTFS text files, type conversions and cleanup in Silver, and SCD2 management in Gold.
+
 ---
 
 ## Data Model and Warehouse
