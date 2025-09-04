@@ -126,7 +126,7 @@ In addition to the Medallion data flow, the architecture also includes dedicated
       
   - **Spark** provides its own monitoring via the **Spark UI** (per job/streaming application).  
 
-For cloud storage, this demo uses **Amazon S3**, but the same design works with old-school **HDFS** or other object stores such as **Azure Blob Storage** and **Google Cloud Storage (GCS)**, depending on the deployment environment.
+For cloud storage, this demo uses **Amazon S3**, but the same design works with old-school **HDFS** or other object stores such as Azure Blob Storage and Google Cloud Storage (GCS), depending on the deployment environment.
 
 All services run in **Docker Compose**, making the setup reproducible locally while still following modern Lakehouse design principles.
 
