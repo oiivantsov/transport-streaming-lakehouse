@@ -7,6 +7,22 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)  
+- [Target Audience](#target-audience)  
+- [Business Value](#business-value)  
+- [Stack and Technologies](#stack-and-technologies)  
+- [Architecture and Workflow](#architecture-and-workflow)  
+- [Data Model and Warehouse](#data-model-and-warehouse)  
+- [Real-Time Streaming & Monitoring (Prometheus + Grafana)](#real-time-streaming--monitoring-prometheus--grafana)  
+- [How to run - Recommended Order](#how-to-run---recommended-order)  
+- [Feedback](#feedback)  
+- [Disclaimer](#disclaimer)  
+- [License](#license)  
+
+---
+
 ## Overview
 
 HSL (Helsingin seudun liikenne) is the Helsinki Regional Transport Authority, responsible for planning and operating public transport across the capital region of Finland (Helsinki, Espoo, Vantaa, and surrounding municipalities).
