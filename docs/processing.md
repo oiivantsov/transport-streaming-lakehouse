@@ -200,31 +200,7 @@ In addition to the batch ETL into Bronze, Silver, and Gold layers, the pipeline 
    * Average speed across the region
    * Share of buses arriving on time
 
-    Example dashboard:
    ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
-
----
-
-### Why This Job Matters
-
-* **Operational monitoring** – instead of waiting for batch jobs, traffic KPIs update every 30 seconds.
-* **Early anomaly detection** – delays or unusual patterns can be spotted live.
-* **Integration with DevOps stack** – the same monitoring tools (Prometheus + Grafana) used for infrastructure also show business-level KPIs.
-* **Scalability** – Spark handles large event volumes, while Prometheus/Grafana make metrics accessible to users instantly.
-
----
-
-### Example Metrics
-
-* `active_vehicles_total{route_id="550"} 12`
-  -> 12 vehicles active on route 550 in the last window.
-
-* `avg_speed_kmh_by_route{route_id="550"} 28.7`
-  -> average speed on route 550 is 28.7 km/h.
-
-* `on_time_ratio_by_route{route_id="550"} 0.92`
-  -> 92% of events on route 550 are within +-60 seconds of schedule.
-
 
 ---
 
