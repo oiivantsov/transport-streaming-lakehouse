@@ -114,8 +114,7 @@ From there, the data flows into multiple layers following the **Medallion Lakeho
 In addition to the Medallion data flow, the architecture also includes dedicated components for **real-time metrics** and **system monitoring**:
 
 * **Real-time metrics (Prometheus + Grafana):**
-  In parallel with landing ingestion, a dedicated Spark streaming job computes **business KPIs** (active vehicles, average speed, on-time ratio).  
-  These metrics are exposed via the Python `prometheus_client` library and scraped by **Prometheus**, then visualized in near real time with **Grafana** dashboards.
+  In parallel with landing ingestion, a dedicated Spark streaming job computes **business KPIs** (active vehicles, average speed, on-time ratio). These metrics are exposed via the Python `prometheus_client` library and scraped by **Prometheus**, then visualized in near real time with **Grafana** dashboards.
 
   ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
