@@ -200,7 +200,8 @@ In addition to the batch ETL into Bronze, Silver, and Gold layers, the pipeline 
    * Average speed across the region
    * Share of buses arriving on time
 
-    👉 Example dashboard: ![Grafana Dashboard Screenshot](docs/img/stream/grafana_v1.png)
+    Example dashboard:
+   ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
 ---
 
