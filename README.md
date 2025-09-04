@@ -103,7 +103,8 @@ From there, the data flows into multiple layers following the **Medallion Lakeho
   Batch jobs orchestrated by **Apache Airflow** overwrite the staging tables with cleaned, normalized data.
 
 * **Gold (Data Warehouse) – curated analytics layer:**
-  Additional Spark jobs perform **SCD2 merges** into the **Delta Lake DW layer**.
+  In the events pipeline, Spark jobs append fact records into the Gold layer partitioned by operational day.  
+  For dimension data, separate batch jobs perform **SCD2 merges** to manage historical changes (name updates, stop relocations, etc.)*.
 
 * **Storage and metadata (Delta Lake + Hive Metastore):**
   All three layers (Bronze, Silver, Gold) are managed in **Delta Lake**, which provides ACID transactions, schema evolution, and time travel. The **Hive Metastore** (with PostgreSQL backend) maintains metadata, enabling query engines to access the tables.
@@ -118,7 +119,7 @@ For cloud storage, this demo uses **Amazon S3**, but the same design works with 
 
 All services run in **Docker Compose**, making the setup reproducible locally while still following modern Lakehouse design principles.
 
-> **Note:** The diagram above illustrates the **events (fact) pipeline**, which processes real-time vehicle events from HSL feeds.  
+> * **Note:** The diagram above illustrates the **events (fact) pipeline**, which processes real-time vehicle events from HSL feeds.  
 > In addition, the project includes two fully batch pipelines for dimension data (`stops` and `routes`).  
 > These are not shown here, as they are simpler batch processes orchestrated by Airflow, with Bronze ingestion from GTFS text files, type conversions and cleanup in Silver, and SCD2 management in Gold.
 
