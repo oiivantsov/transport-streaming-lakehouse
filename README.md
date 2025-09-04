@@ -161,8 +161,6 @@ In addition to batch ETL into Bronze, Silver, and Gold layers, the pipeline incl
 Example dashboard:  
 ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
-This setup enables live operational monitoring, early anomaly detection, and seamless integration of business KPIs into the same Prometheus/Grafana stack already used for infrastructure monitoring.
-
 ---
 
 ## How to run - Recommended Order
