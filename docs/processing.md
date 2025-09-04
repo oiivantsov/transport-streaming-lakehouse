@@ -2,10 +2,10 @@
 
 > This document is part of the [HSL Transport Streaming Lakehouse](../README.md). See the main README for architecture, business value, and setup instructions.
 
-This document describes how data is **processed with Spark** from ingestion to analytics:  
+This document describes the key processing aspects with Spark:  
 - [Real-time streaming from Kafka](#real-time-events-and-kafka-producer)  
 - [Batch ETL with Slowly Changing Dimensions (SCD2)](#batch-etl-with-slowly-changing-dimensions-scd2)  
-- [Continuous metric computation with Prometheus](#real-time-metrics-with-spark-and-prometheus)  
+- [Continuous metric computation with time windows in Spark Structured Streaming](#real-time-metrics-with-spark-and-prometheus)  
 - [Built-in Data Quality (DQ) safeguards](#data-quality-dq-framework)
 
 ---
