@@ -31,14 +31,7 @@ Buses, trams, metro, trains, and ferries emit these messages continuously, creat
 
 This makes it a perfect use case for streaming pipelines, where both **real-time monitoring** and **historical analytics** are critical.
 
-To address this challenge, I designed and implemented a **streaming Lakehouse** built on open-source technologies:
-
-* Kafka for ingestion
-* Spark Structured Streaming for processing
-* Delta Lake + Hive Metastore for storage (raw → staging → DW)
-* Airflow for batch orchestration
-* Trino for SQL queries
-* Prometheus + Grafana for monitoring and dashboards
+To address this challenge, I built a **streaming Lakehouse** on open-source technologies, including the following core components: **Kafka** (ingestion), **Spark** (streaming & batch), **Delta Lake + Hive** (storage & catalog), **Airflow** (orchestration), **Trino** (SQL), and **Prometheus + Grafana** (monitoring).
 
 This project puts its main focus on Apache Spark and Delta Lakehouse. These technologies are also the core building blocks of the Databricks platform, and working with them directly helped me prepare for and pass the [**Databricks Data Engineer Associate exam**](https://www.databricks.com/learn/certification/data-engineer-associate).
 
