@@ -2,8 +2,8 @@
 
 👉 [Jump straight to the Architecture Diagram](#architecture-and-workflow)
 
-- If you are interested in the **data model, schemas, and storage design**, see [**Data and Storage**](docs/data.md).  
-- If you want to learn more about **processing logic, batch ETL, SCD2 dimensions, and real-time metrics**, see [**Processing and Data Flow**](docs/processing.md).  
+- If you are interested in the data model, schemas, and storage design, see [**Data and Storage**](docs/data.md).  
+- If you want to learn more about processing logic, batch ETL, SCD2 dimensions, and real-time metrics, see [**Processing and Data Flow**](docs/processing.md).  
 
 ---
 
@@ -52,16 +52,6 @@ This automated transport pipeline delivers clear value:
 * **Capacity and demand planning:** integrating real-time with historical data supports forecasting passenger loads, optimizing schedules, and balancing fleet capacity.
 * **Bottleneck detection:** continuous monitoring reveals recurring delays, overloaded stops, and underperforming routes, guiding targeted infrastructure or scheduling improvements.
 * **Innovation and future use cases:** the GTFS-based model lays the foundation for advanced analytics and ML, such as predictive maintenance, demand forecasting, and route optimization.
-
----
-
-## Main Result
-
-In real time, the pipeline enables tracking of **bus dynamics across Uusimaa** (Helsinki, Espoo, Vantaa, and surrounding municipalities).
-Both **basic KPIs** – such as the **total number of active buses** and their **average speed** – and **detailed route-level insights** are available.
-For example, operators and analysts can instantly see **which routes currently experience the highest delays**.
-
-See [**Results**](docs/results.md) for detailed examples and visualizations.
 
 ---
 
@@ -153,6 +143,25 @@ If you want to know more about the underlying data definitions, see the official
 * [Extended route types](https://developers.google.com/transit/gtfs/reference/extended-route-types)
 
 For more details on the data flows, schemas, and transformations, see [Data and Storage](docs/data.md).
+
+---
+
+## Real-Time Streaming & Monitoring (Prometheus + Grafana)
+
+In addition to batch ETL into Bronze, Silver, and Gold layers, the pipeline includes a real-time streaming component:
+
+* **Ingestion** – a custom Kafka producer consumes HSL’s MQTT feed (`mqtt.hsl.fi`) and pushes vehicle events into the `hsl_stream` topic.
+* **Processing** – Spark Structured Streaming groups events into sliding windows and computes global KPIs:
+  - **Total active vehicles**
+  - **Average speed**
+  - **On-time ratio** (share of events with delay <= 60s)
+* **Metrics exposure** – the KPIs are published via the Python `prometheus_client` library on port `9108`.
+* **Dashboards** – Prometheus scrapes the metrics, and Grafana visualizes them in near real time.
+
+👉 Example dashboard:  
+![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
+
+This setup enables live operational monitoring, early anomaly detection, and seamless integration of business KPIs into the same Prometheus/Grafana stack already used for infrastructure monitoring.
 
 ---
 
@@ -304,16 +313,6 @@ docker compose down hsl-spark-streaming-metrics
 
 ---
 
-## Documentation
-
-- [Data: Schemas, Examples, Partitions](docs/data.md)
-- [Processing: Streaming & Batch ETL](docs/processing.md)
-- [Querying: SQL & Analytics](docs/querying.md)
-- [Monitoring: Metrics & Dashboards](docs/monitoring.md)
-- [Troubleshooting](docs/troubleshooting.md)
-
----
-
 ## Feedback
 
 I'm always happy to hear any feedback, suggestions, or ideas on how this project can be further improved.
@@ -331,8 +330,8 @@ The results and statistics shown here are based on publicly available HSL open d
 * This repository is not affiliated with or endorsed by HSL.  
 * All visualizations and metrics are provided for educational and portfolio purposes only.  
 
-Official source: [HSL Open Data](https://www.hsl.fi/en/hsl/open-data)  
-Data is licensed under [Creative Commons BY 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/).  
+Official source: [HSL Open Data](https://www.hsl.fi/en/hsl/open-data).
+Data is licensed under [Creative Commons BY 4.0 International Licence](https://creativecommons.org/licenses/by/4.0/).
 
 ---
 
