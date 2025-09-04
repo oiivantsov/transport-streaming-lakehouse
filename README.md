@@ -26,27 +26,25 @@
 
 HSL (Helsingin seudun liikenne) is the Helsinki Regional Transport Authority, responsible for planning and operating public transport across the capital region of Finland (Helsinki, Espoo, Vantaa, and surrounding municipalities).
 
-It provides open data via MQTT and GTFS feeds with real-time events like vehicle positions, trip progress, and stop arrivals.
-Buses, trams, metro, trains, and ferries emit these messages continuously, creating a fast-changing transport data stream.
+It provides open data via MQTT and GTFS feeds with real-time events like vehicle positions, trip progress, and stop arrivals. Buses, trams, metro, trains, and ferries emit these messages continuously, creating a fast-changing transport data stream.
 
-This project turns those high-volume streams into a unified streaming lakehouse on open-source technologies, including: **Kafka** (ingestion), **Spark** (streaming & batch), **Delta Lake + Hive** (storage & catalog), **Airflow** (orchestration), **Trino** (SQL), and **Prometheus + Grafana** (monitoring).
+This project turns those high-volume streams into a unified streaming lakehouse on open-source technologies: Kafka for ingestion, Spark for streaming and batch processing, Delta Lake + Hive for storage and catalog, Airflow for orchestration, Trino for SQL queries, and Prometheus + Grafana for monitoring.
 
 As a result, this project delivers a single open-source streaming Lakehouse that provides real-time operational visibility and durable historical analytics for smarter decision-making — all without vendor lock-in.
+
+I also consider this project a great opportunity to deepen my knowledge of Spark and Lakehouse, and since the core technologies are the same as in Databricks, the hands-on work also gave me the confidence to prepare for and pass the [Databricks Data Engineer Associate exam](https://www.databricks.com/learn/certification/data-engineer-associate).
 
 ---
 
 ## Target Audience
 
-While this project is demonstrated on public transport data, the underlying streaming Lakehouse design applies to a wide range of industries.  
-It is especially relevant for organizations that need to process millions of events per day in a cost-effective, open-source environment:
+While this project is demonstrated using public transport data, the underlying streaming Lakehouse design is applicable to a wide range of industries, particularly those that need to process millions of events per day in a cost-effective, open-source environment:
 
 * **Startups and mid-sized businesses** – building scalable products without committing to expensive managed platforms.  
 * **IoT and mobility** – processing millions of device and vehicle events per day in real time.  
 * **Gaming companies** – tracking player telemetry, in-game transactions, and live events at scale.  
 * **Financial services and fintech** – streaming transactions, fraud detection, and real-time risk monitoring on high-volume event streams.  
-* **Telecom and streaming providers** – handling continuous event streams such as usage data, sessions, or content delivery metrics.  
-
-By relying on fully open-source technologies, this architecture stays flexible enough to evolve into a production-ready enterprise solution.
+* **Telecom and streaming providers** – handling continuous event streams such as usage data, sessions, or content delivery metrics.
 
 ---
 
