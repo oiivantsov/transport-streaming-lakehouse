@@ -7,6 +7,27 @@ It illustrates how public transport events are ingested, stored, and transformed
 
 ---
 
+## Table of Contents
+
+- [Medallion Architecture Overview](#medallion-architecture-overview)  
+- [File Organization in S3](#file-organization-in-s3)  
+- [Streaming Data Flow (Events)](#streaming-data-flow-events)  
+  - [1. Landing Layer (Bronze)](#1-landing-layer-bronze)  
+  - [2. Staging Layer (Silver)](#2-staging-layer-silver)  
+  - [3. Data Warehouse Layer (Gold)](#3-data-warehouse-layer-gold)  
+- [Stops Data (≈8,500 records)](#stops-data-≈8500-records)  
+  - [1. Landing Layer (Bronze) – hdw_ld.stops_ld](#landing-layer-bronze--hdw_ldstops_ld)  
+  - [2. Staging Layer (Silver) – hdw_stg.stops_stg](#staging-layer-silver--hdw_stgstops_stg)  
+  - [3. Data Warehouse Layer (Gold) – hdw.dim_stops](#data-warehouse-layer-gold--hdwdim_stops)  
+- [Routes Data (≈530 records)](#routes-data-≈530-records)  
+  - [1. Landing Layer (Bronze) – hdw_ld.routes_ld](#landing-layer-bronze--hdw_ldroutes_ld)  
+  - [2. Staging Layer (Silver) – hdw_stg.routes_stg](#staging-layer-silver--hdw_stgroutes_stg)  
+  - [3. Data Warehouse Layer (Gold) – hdw.dim_routes](#data-warehouse-layer-gold--hdwdim_routes)  
+- [Star Schema in the Gold Layer](#star-schema-in-the-gold-layer)  
+  - [Example Query: Average Delay per Route](#example-query-average-delay-per-route)  
+
+---
+
 ## Medallion Architecture Overview
 
 The project follows the **Delta Lake Medallion pattern**:
