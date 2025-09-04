@@ -37,8 +37,8 @@ As a result, this project delivers a single open-source streaming Lakehouse that
 
 ## Target Audience
 
-While this project is demonstrated on public transport data, the underlying **streaming Lakehouse design** applies to a wide range of industries.  
-It is especially relevant for organizations that need to process **millions of events per day** in a **cost-effective, open-source environment**:
+While this project is demonstrated on public transport data, the underlying streaming Lakehouse design applies to a wide range of industries.  
+It is especially relevant for organizations that need to process millions of events per day in a cost-effective, open-source environment:
 
 * **Startups and mid-sized businesses** – building scalable products without committing to expensive managed platforms.  
 * **IoT and mobility** – processing millions of device and vehicle events per day in real time.  
@@ -46,7 +46,7 @@ It is especially relevant for organizations that need to process **millions of e
 * **Financial services and fintech** – streaming transactions, fraud detection, and real-time risk monitoring on high-volume event streams.  
 * **Telecom and streaming providers** – handling continuous event streams such as usage data, sessions, or content delivery metrics.  
 
-By relying on **fully open-source technologies** (Kafka, Spark, Delta, Trino, Prometheus, Grafana), this architecture avoids vendor lock-in while staying flexible enough to evolve into a production-ready enterprise solution.
+By relying on fully open-source technologies, this architecture stays flexible enough to evolve into a production-ready enterprise solution.
 
 ---
 
