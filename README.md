@@ -28,7 +28,7 @@ HSL (Helsingin seudun liikenne) is the Helsinki Regional Transport Authority, re
 
 It provides open data via MQTT and GTFS feeds with real-time events like vehicle positions, trip progress, and stop arrivals. Buses, trams, metro, trains, and ferries emit these messages continuously, creating a fast-changing transport data stream.
 
-And to harness these high-volume streams, I built this project — **a unified streaming Lakehouse on open-source technologies: Kafka for ingestion, Spark for streaming and batch processing, Delta Lake + Hive for storage and catalog, Airflow for orchestration, Trino for SQL queries, and Prometheus + Grafana for monitoring**.
+And to harness these high-volume streams, I built this project — **a unified real-time Lakehouse on open-source technologies: Kafka for ingestion, Spark for streaming and batch processing, Delta Lake + Hive for storage and catalog, Airflow for orchestration, Trino for SQL queries, and Prometheus + Grafana for monitoring**.
 
 As a result, this project delivers a single open-source streaming Lakehouse that provides real-time operational visibility and durable historical analytics for smarter decision-making — all without vendor lock-in.
 
