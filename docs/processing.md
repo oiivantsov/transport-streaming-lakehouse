@@ -193,7 +193,12 @@ In addition to the batch ETL into Bronze, Silver, and Gold layers, the pipeline 
    PCT_ROUTES_ON_TIME = Gauge("pct_routes_on_time", "Share of routes on time (<1 min delay)")
    ```
 
-5. **Grafana Dashboards**
+5. **Append Output Mode**
+   The stream runs in **`outputMode("append")`**, which ensures that only closed windows are written out.  
+   This prevents partial aggregates from being published and avoids "jumps" or corrections on Grafana charts.  
+   Effectively, Prometheus only receives finalized metrics for each completed window.
+
+6. **Grafana Dashboards**
    Prometheus metrics are visualized in Grafana, providing near real-time visibility into:
 
    * The total number of vehicles currently on the road
