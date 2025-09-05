@@ -8,17 +8,18 @@
 
 ## Table of Contents
 
-- [Overview](#overview)  
+<!-- - [Overview](#overview)  
 - [Target Audience](#target-audience)  
 - [Business Value](#business-value)  
 - [Stack and Technologies](#stack-and-technologies)  
 - [Architecture and Workflow](#architecture-and-workflow)  
-- [Data Model and Warehouse](#data-model-and-warehouse)  
+- [Data Model and Warehouse](#data-model-and-warehouse)
+- [Key Challenges and Debugging Notes](#key-challenges-and-debugging-notes) 
 - [How to run - Recommended Order](#how-to-run---recommended-order)
 - [Scalability and Future Growth](#scalability-and-future-growth)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
-- [License](#license)  
+- [License](#license)   -->
 
 ---
 
@@ -161,6 +162,105 @@ For more details on the data flows, schemas, and transformations, see [Data and 
 
 ---
 
+## Key Challenges and Debugging Notes
+
+### 1. Running Multiple Spark Jobs in Parallel
+
+By default, when running multiple Spark jobs in parallel, one job can grab all available cores, leaving no resources for the others.
+
+![Two Spark jobs running at the same time](/docs/img/debug/spark_parallel_1.png)
+
+Solution: explicitly configure `spark.executor.cores` and `spark.cores.max` for each job in `docker-compose.yml`, so that resources are shared fairly:
+
+```yaml
+command: >
+  /spark/bin/spark-submit
+  --master spark://spark-master:7077
+  --conf spark.ui.port=4046
+  --conf spark.executor.memory=2g
+  --conf spark.executor.cores=6
+  --conf spark.cores.max=6
+  /home/jobs/rt_metrics/stream_metrics.py
+```
+
+Both jobs can then run concurrently without interference:
+![Two Spark jobs running at the same time](/docs/img/debug/spark_parallel_2.png)
+
+Additionally, make sure the Kafka producer creates enough partitions to match the parallelism of the consumers:
+
+```python
+topic = NewTopic(name=TOPIC, num_partitions=PARTITIONS, replication_factor=REPLICATION_FACTOR)
+```
+
+I eventually kept the default setup (without per-job resource configs), since my computer didn’t handle running multiple Spark jobs at once very well, and in practice I rarely needed them simultaneously.
+
+---
+
+### 2. Real-Time Metrics Windows
+
+Configuring time windows for the real-time metrics Spark job was one of the most time-consuming tasks.
+
+Current setup:
+
+* Watermark = 1 minute
+* Window = 5 minutes with 30-second slide
+* Output = append mode (only closed windows are written to Prometheus)
+
+Despite using a 30-second slide, new data points appear on the Grafana dashboard only about every 2 minutes. Tuning the trigger interval and windowing logic is still in progress.
+
+---
+
+### 3. SCD2 Merge Logic
+
+Implementing Slowly Changing Dimensions (SCD2) without rewriting entire tables required careful SQL design.
+
+Final approach:
+
+1. **MERGE** step marks outdated records as inactive.
+2. **INSERT** step adds new records with updated values.
+
+See detailed SQL patterns in [Processing docs](/docs/processing.md#batch-etl-with-slowly-changing-dimensions-scd2).
+
+---
+
+### 4. Hive Metastore Setup
+
+Getting the Delta Lake – Hive – PostgreSQL stack working together was also challenging.
+
+Main issues:
+
+* Version mismatches between PostgreSQL and Hive
+* Initialization scripts failing on first run
+
+Fix: introduced a custom [entrypoint script](/hive-metastore/entrypoint.sh) to bootstrap the schema and ensure Hive Metastore connects reliably.
+
+---
+
+### 5. AWS S3 Integration
+
+Connecting Spark, Hive, and Trino to S3 required multiple rounds of trial and error.
+
+Key point: every service accessing S3 must have AWS credentials mounted (not just Spark). Once configured consistently, the pipeline was able to write/read from the same bucket without errors.
+
+---
+
+### 6. Airflow and Spark Separation
+
+Initially, I tried using the Airflow Spark operator, but it caused issues in cluster mode (requiring Spark to run inside the Airflow container).
+
+So I decided to use the SSH operator instead, which allows Airflow to trigger Spark jobs running in their own containers.
+
+One caveat: Airflow needed AWS credentials mounted in spark containers explicitly for its user (`sparkuser`):
+
+```yml
+- ./aws:/home/sparkuser/.aws:ro
+```
+
+This ensures Spark jobs triggered via Airflow can still access S3.
+
+---
+
+
 ## How to run - Recommended Order
 
 ⚠️ **Note**: This project was originally designed for a single machine. Running all services at once with
@@ -227,7 +327,7 @@ docker compose up -d zookeeper kafka grafana prometheus postgres hive-metastore 
 * Trino (via CloudBeaver) → [http://localhost:8978](http://localhost:8978)
 * PostgreSQL (via pgAdmin) → [http://localhost:5050](http://localhost:5050)
 
-`airflow-webserver` may be needed to re-run
+`airflow-webserver` and `kafka` may be needed to re-run
 
 ---
 

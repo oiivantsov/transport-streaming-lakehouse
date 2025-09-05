@@ -74,6 +74,9 @@ services:
       /spark/bin/spark-submit
       --master spark://spark-master:7077
       --conf spark.ui.port=4044
+      --conf spark.executor.memory=2g
+      --conf spark.executor.cores=6
+      --conf spark.cores.max=6
       /home/jobs/landing/events_landing.py
     ports:
       - "4044:4044"
@@ -92,6 +95,9 @@ services:
       /spark/bin/spark-submit
       --master spark://spark-master:7077
       --conf spark.ui.port=4046
+      --conf spark.executor.memory=2g
+      --conf spark.executor.cores=6
+      --conf spark.cores.max=6
       /home/jobs/rt_metrics/stream_metrics.py
     ports:
       - "4046:4046"
