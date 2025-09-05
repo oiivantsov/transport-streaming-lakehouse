@@ -457,7 +457,7 @@ docker compose down hsl-spark-streaming-metrics
 
 ### 8. Explore the Data Warehouse
 
-* Open **CloudBeaver** -> connect to **Trino** -> query `hdw.gold_*` tables.
+* Open **CloudBeaver** -> connect to **Trino** -> query `hdw.fact_*` or `hdw.dim_*` tables.
 * Explore PostgreSQL metadata in **pgAdmin**.
 
 ---
