@@ -8,7 +8,7 @@
 
 ## Table of Contents
 
-- [Overview](#overview)  
+<!-- - [Overview](#overview)  
 - [Target Audience](#target-audience)  
 - [Business Value](#business-value)
 - [Cost](#cost)  
@@ -16,11 +16,11 @@
 - [Architecture and Workflow](#architecture-and-workflow)  
 - [Data Model and Warehouse](#data-model-and-warehouse)
 - [Key Challenges and Debugging Notes](#key-challenges-and-debugging-notes) 
-- [How to run - Recommended Order](#how-to-run---recommended-order)
 - [Scalability and Future Growth](#scalability-and-future-growth)
+- [How to run - Recommended Order](#how-to-run---recommended-order)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
-- [License](#license)
+- [License](#license) -->
 
 ---
 
@@ -30,7 +30,7 @@ HSL (Helsingin seudun liikenne) is the Helsinki Regional Transport Authority, re
 
 It provides open data via MQTT and GTFS feeds with real-time events like vehicle positions, trip progress, and stop arrivals. Buses, trams, metro, trains, and ferries emit these messages continuously, creating a fast-changing transport data stream.
 
-And to harness these high-volume streams, I built this project — **a unified real-time Lakehouse on open-source technologies: Kafka for ingestion, Spark for streaming and batch processing, Delta Lake + Hive for storage and catalog, Airflow for orchestration, Trino for SQL queries, and Prometheus + Grafana for monitoring**.
+To harness these high-volume streams, I built this project — **a unified real-time Lakehouse on open-source technologies: Kafka for ingestion, Spark for streaming and batch processing, Delta Lake + Hive for storage and catalog, Airflow for orchestration, Trino for SQL queries, and Prometheus + Grafana for monitoring**.
 
 As a result, this project delivers a single open-source streaming Lakehouse that provides real-time operational visibility and durable historical analytics for smarter decision-making — all without vendor lock-in.
 
@@ -123,6 +123,10 @@ In addition to the Medallion data flow, the architecture also includes dedicated
 
   ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
+  <details><summary>Attribution</summary>
+  Based on this template: <a href="https://grafana.com/grafana/dashboards/11962-kafka-metrics/">Kafka Metrics</a>.
+  </details>
+
 * **Monitoring and observability:**
   - **Kafka** is monitored through JMX exporters, with metrics scraped by Prometheus and visualized in Grafana.
 
@@ -213,13 +217,18 @@ I eventually kept the default setup (without per-job resource configs), since my
 
 ### 2. Real-Time Metrics Windows
 
-Configuring time windows for the real-time metrics Spark job was one of the most time-consuming tasks.
+Configuring time windows for the [real-time metrics Spark job](/spark/jobs/rt_metrics/stream_metrics.py) was one of the most time-consuming tasks.
 
 Current setup:
 
 * Watermark = 1 minute
 * Window = 5 minutes with 30-second slide
 * Output = append mode (only closed windows are written to Prometheus)
+
+```python
+    .withWatermark("timestamp", "1 minutes")
+    .groupBy(F.window(F.col("timestamp"), "5 minutes", "30 seconds"))
+```
 
 Despite using a 30-second slide, new data points appear on the Grafana dashboard only about every 2 minutes. Tuning the trigger interval and windowing logic is still in progress.
 
@@ -263,6 +272,10 @@ Key point: every service accessing S3 must have AWS credentials mounted (not jus
 
 Initially, I tried using the Airflow Spark operator, but it caused issues in cluster mode (requiring Spark to run inside the Airflow container).
 
+```text
+[2025-08-25, 08:21:59 UTC] {spark_submit.py:644} INFO - Exception in thread "main" org.apache.spark.SparkException: Cluster deploy mode is currently not supported for python applications on standalone clusters.
+```
+
 So I decided to use the SSH operator instead, which allows Airflow to trigger Spark jobs running in their own containers.
 
 One caveat: Airflow needed AWS credentials mounted in spark containers explicitly for its user (`sparkuser`):
@@ -275,6 +288,29 @@ This ensures Spark jobs triggered via Airflow can still access S3.
 
 ---
 
+## Scalability and Future Growth
+
+This project is built as a technical demo, but the architecture is **scalable by design**.  
+Several clear growth paths exist:
+
+* **Cluster scaling**  
+  - The current Spark setup runs on Docker Compose, but scaling is best achieved by adding more Spark nodes.  
+  - In production, this would typically be managed via **Kubernetes**, enabling elastic resource allocation and auto-scaling.
+
+* **Data coverage**  
+  - At the moment, only **bus events** are ingested from HSL.  
+  - The pipeline can be extended to include **trams, metro, trains, and ferries**, greatly expanding the event volume.  
+  - Additional GTFS dimensions beyond routes and stops can also be integrated.
+
+* **Analytics potential**  
+  - With more data, advanced analytics use cases become possible:  
+    - **Geospatial queries** (vehicle positions, route coverage, hot-spot detection)  
+    - **Deviation analysis** (detecting off-route driving, unusual patterns)
+    - **Predictive modeling** (forecasting congestion, optimizing fleet allocation)
+
+This demonstrates how an open-source Lakehouse approach can grow into an enterprise-grade platform capable of processing tens of millions of events per day while supporting increasingly sophisticated analytics.
+
+---
 
 ## How to run - Recommended Order
 
@@ -325,7 +361,7 @@ This ensures Spark, Hive Metastore, and downstream jobs all write to the same S3
 docker compose up -d spark-master spark-worker
 ```
 
-* Spark Master UI → [http://localhost:8081](http://localhost:8081)
+* Spark Master UI -> [http://localhost:8081](http://localhost:8081)
 
 ---
 
@@ -335,12 +371,12 @@ docker compose up -d spark-master spark-worker
 docker compose up -d zookeeper kafka grafana prometheus postgres hive-metastore dbeaver trino pgadmin airflow-webserver airflow-scheduler airflow-init
 ```
 
-* Kafka → `localhost:9092`
-* Prometheus → [http://localhost:9090](http://localhost:9090)
-* Grafana → [http://localhost:3000](http://localhost:3000) (user: `admin`, pass: `admin`)
-* Airflow → [http://localhost:8080](http://localhost:8080) (user: `airflow`, pass: `airflow`)
-* Trino (via CloudBeaver) → [http://localhost:8978](http://localhost:8978)
-* PostgreSQL (via pgAdmin) → [http://localhost:5050](http://localhost:5050)
+* Kafka -> `localhost:9092`
+* Prometheus -> [http://localhost:9090](http://localhost:9090)
+* Grafana -> [http://localhost:3000](http://localhost:3000) (user: `admin`, pass: `admin`)
+* Airflow -> [http://localhost:8080](http://localhost:8080) (user: `airflow`, pass: `airflow`)
+* Trino (via CloudBeaver) -> [http://localhost:8978](http://localhost:8978)
+* PostgreSQL (via pgAdmin) -> [http://localhost:5050](http://localhost:5050)
 
 `airflow-webserver` and `kafka` may be needed to re-run
 
@@ -354,7 +390,7 @@ Run short Spark job once (no need to repeat):
 docker compose up spark-db-init
 ```
 
-* Spark job UI → [http://localhost:4043](http://localhost:4043)
+* Spark job UI -> [http://localhost:4043](http://localhost:4043)
 
 * Creates the required Delta databases (hdw_ld, hdw_stg, hdw)
 * Initializes control tables (used by batch ETL jobs and Airflow DAGs)
@@ -368,7 +404,7 @@ docker compose up spark-db-init
 docker compose up -d hsl-transport-service
 ```
 
-* Produces HSL events via MQTT → Kafka collects them into `hsl_stream` topic.
+* Produces HSL events via MQTT -> Kafka collects them into `hsl_stream` topic.
 * Monitor Kafka with Grafana dashboards.
 * You can also increase the velocity of events by decreasing the `TIME_SLEEP` parameter in [HSL producer script](/hsl-transport-service/hsl_producer.py)
 
@@ -382,7 +418,7 @@ Run Spark streaming job to collect some data, then stop:
 docker compose up hsl-spark-streaming-landing
 ```
 
-* Spark job UI → [http://localhost:4044](http://localhost:4044)
+* Spark job UI -> [http://localhost:4044](http://localhost:4044)
 
 * Consumes Kafka events.
 * Stores them into **Delta Lake (Bronze)**.
@@ -399,7 +435,7 @@ docker compose down hsl-spark-streaming-landing
 docker compose up hsl-spark-streaming-metrics
 ```
 
-* Spark job UI → [http://localhost:4045](http://localhost:4045)
+* Spark job UI -> [http://localhost:4046](http://localhost:4046)
 
 * Pushes metrics to **Prometheus**.
 * View live dashboards in **Grafana**.
@@ -413,38 +449,16 @@ docker compose down hsl-spark-streaming-metrics
 
 ### 7. Batch processing (ETL)
 
-* Open **Airflow** → trigger DAGs to move data Bronze → Silver → Gold.
+* Open **Airflow** -> trigger DAGs to move data Bronze -> Silver -> Gold.
+
+![Airflow DAGs](/docs/img/debug/airflow.png)
 
 ---
 
 ### 8. Explore the Data Warehouse
 
-* Open **CloudBeaver** → connect to **Trino** → query `hdw.gold_*` tables.
+* Open **CloudBeaver** -> connect to **Trino** -> query `hdw.gold_*` tables.
 * Explore PostgreSQL metadata in **pgAdmin**.
-
----
-
-## Scalability and Future Growth
-
-This project is built as a technical demo, but the architecture is **scalable by design**.  
-Several clear growth paths exist:
-
-* **Cluster scaling**  
-  - The current Spark setup runs on Docker Compose, but scaling is best achieved by adding more Spark nodes.  
-  - In production, this would typically be managed via **Kubernetes**, enabling elastic resource allocation and auto-scaling.
-
-* **Data coverage**  
-  - At the moment, only **bus events** are ingested from HSL.  
-  - The pipeline can be extended to include **trams, metro, trains, and ferries**, greatly expanding the event volume.  
-  - Additional GTFS dimensions beyond routes and stops can also be integrated.
-
-* **Analytics potential**  
-  - With more data, advanced analytics use cases become possible:  
-    - **Geospatial queries** (vehicle positions, route coverage, hot-spot detection)  
-    - **Deviation analysis** (detecting off-route driving, unusual patterns)
-    - **Predictive modeling** (forecasting congestion, optimizing fleet allocation)
-
-This demonstrates how an open-source Lakehouse approach can grow into an enterprise-grade platform capable of processing tens of millions of events per day while supporting increasingly sophisticated analytics.
 
 ---
 

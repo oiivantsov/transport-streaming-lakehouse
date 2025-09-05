@@ -60,10 +60,7 @@ print("SPARK_APP: Final landing data count - " + str(df_landing.count()))
 df_landing.printSchema()
 
 # Write to landing table
-if get_max_timestamp(spark, schema_name, table_name) != "1900-01-01 00:00:00.000000":
-    df_landing.write.format("delta").mode("append").saveAsTable(table_full_name)
-else:
-    df_landing.write.format("delta").mode("overwrite").saveAsTable(table_full_name)
+df_landing.write.format("delta").mode("append").saveAsTable(table_full_name)
 
 print("SPARK_APP: Data written to landing layer")
 

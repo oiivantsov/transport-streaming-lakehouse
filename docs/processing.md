@@ -162,7 +162,7 @@ In addition to the batch ETL into Bronze, Silver, and Gold layers, the pipeline 
    Spark Structured Streaming consumes the raw `hsl_stream` Kafka topic and extracts relevant JSON fields (`route_id`, `vehicle_number`, `timestamp`, `speed`, `delay`).
 
 2. **Apply Sliding Windows**
-   Events are grouped in **5-minute windows sliding every 20 seconds**, with a **1-minute watermark** to handle late data.
+   Events are grouped in **5-minute windows sliding every 30 seconds**, with a **1-minute watermark** to handle late data.
 
 3. **Aggregate Global KPIs**
    For each window, Spark computes:
@@ -175,7 +175,7 @@ In addition to the batch ETL into Bronze, Silver, and Gold layers, the pipeline 
    windowed_df = (
        parsed_df
        .withWatermark("timestamp", "1 minutes")
-       .groupBy(F.window(F.col("timestamp"), "5 minutes", "20 seconds"))
+       .groupBy(F.window(F.col("timestamp"), "5 minutes", "30 seconds"))
        .agg(
            F.approx_count_distinct("vehicle_number").alias("active_vehicles"),
            F.avg("speed").alias("avg_speed"),

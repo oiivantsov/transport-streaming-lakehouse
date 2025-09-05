@@ -40,7 +40,7 @@ parsed_df = kafka_stream.selectExpr("CAST(value AS STRING) AS v").select(
 windowed_df = (
     parsed_df
     .withWatermark("timestamp", "1 minutes")
-    .groupBy(F.window(F.col("timestamp"), "5 minutes", "20 seconds"))
+    .groupBy(F.window(F.col("timestamp"), "5 minutes", "30 seconds"))
     .agg(
         F.approx_count_distinct("vehicle_number").alias("active_vehicles"),
         F.avg("speed").alias("avg_speed"),
