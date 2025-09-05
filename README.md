@@ -8,7 +8,7 @@
 
 ## Table of Contents
 
-<!-- - [Overview](#overview)  
+- [Overview](#overview)  
 - [Target Audience](#target-audience)  
 - [Business Value](#business-value)  
 - [Stack and Technologies](#stack-and-technologies)  
@@ -19,7 +19,7 @@
 - [Scalability and Future Growth](#scalability-and-future-growth)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
-- [License](#license)   -->
+- [License](#license)
 
 ---
 
