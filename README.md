@@ -10,7 +10,8 @@
 
 - [Overview](#overview)  
 - [Target Audience](#target-audience)  
-- [Business Value](#business-value)  
+- [Business Value](#business-value)
+- [Cost](#cost)  
 - [Stack and Technologies](#stack-and-technologies)  
 - [Architecture and Workflow](#architecture-and-workflow)  
 - [Data Model and Warehouse](#data-model-and-warehouse)
@@ -59,6 +60,20 @@ This automated transport pipeline delivers clear value:
 * **Innovation and future use cases:** the GTFS-based model lays the foundation for advanced analytics and ML, such as predictive maintenance, demand forecasting, and route optimization.
 
 ---
+
+## Cost
+
+To give a concrete sense of the cost efficiency, I ran the full pipeline for 3 hours, processing around 250,000 real-time events from HSL with 6 partitions and a 10-second micro-batch interval.
+
+The resulting data volume across Bronze, Silver, and Gold layers in **Parquet** format totaled about **50 MB** in **Amazon S3** storage.
+The total cost for S3 storage and data writes came to approximately **\$0.04**.
+
+This means that processing **2.0 million events per day** — including all data ingestion, cleaning, and analytics — would cost **around €0.32/day (up to $10/month)**, while all the streaming, batch processing, orchestration, SQL queries, and dashboards run completely **free of charge** on open-source technologies.
+
+> The monthly cost can be reduced further by decreasing the number of PUT requests and increasing the micro-batch interval in the Spark job.
+
+---
+
 
 ## Stack and Technologies
 
