@@ -28,4 +28,5 @@ def make_spark_task(task_id: str, script_path: str) -> SSHOperator:
             script_path,
             "--rundate", "{{ ds_nodash }}"
         ]),
+        cmd_timeout = 7200
     )

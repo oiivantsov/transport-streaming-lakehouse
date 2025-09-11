@@ -5,7 +5,7 @@
   "tags": ["prometheus", "spark", "hsl"],
   "timezone": "browser",
   "schemaVersion": 38,
-  "version": 3,
+  "version": 5,
   "refresh": "10s",
   "panels": [
     {
@@ -30,13 +30,83 @@
     },
     {
       "type": "timeseries",
-      "title": "Percentage of Routes On Time",
+      "title": "On-Time Arrival Ratio (≤1/2/3 min)",
       "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
       "targets": [
-        { "expr": "pct_routes_on_time", "legendFormat": "On-Time %", "refId": "C" }
+        { "expr": "pct_routes_on_time_1", "legendFormat": "≤1 min", "refId": "C1" },
+        { "expr": "pct_routes_on_time_2", "legendFormat": "≤2 min", "refId": "C2" },
+        { "expr": "pct_routes_on_time_3", "legendFormat": "≤3 min", "refId": "C3" }
       ],
       "fieldConfig": { "defaults": { "unit": "percentunit", "decimals": 2 } },
       "gridPos": { "h": 8, "w": 8, "x": 16, "y": 0 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Most Delayed Route (minutes)",
+      "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+      "targets": [
+        {
+          "expr": "last_over_time(route_delay_extreme_seconds{type=\"worst\"}[2m]) / 60",
+          "legendFormat": "{{route_id}}",
+          "refId": "D1"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "m", "decimals": 2 } },
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 8 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Most Ahead Route (minutes)",
+      "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+      "targets": [
+        {
+          "expr": "last_over_time(route_delay_extreme_seconds{type=\"best\"}[2m]) / 60",
+          "legendFormat": "{{route_id}}",
+          "refId": "D2"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "m", "decimals": 2 } },
+      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 8 }
+    },
+    {
+      "type": "stat",
+      "title": "Most Delayed Route (avg delay, min)",
+      "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+      "targets": [
+        {
+          "expr": "topk(1, last_over_time(route_delay_extreme_seconds{type=\"worst\"}[2m]) ) / 60",
+          "legendFormat": "{{route_id}}",
+          "refId": "E1"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "m", "decimals": 2 } },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "orientation": "horizontal",
+        "textMode": "auto",
+        "colorMode": "value"
+      },
+      "gridPos": { "h": 8, "w": 4, "x": 16, "y": 8 }
+    },
+    {
+      "type": "stat",
+      "title": "Most Ahead Route (avg early, min)",
+      "datasource": { "type": "prometheus", "uid": "prometheus-ds" },
+      "targets": [
+        {
+          "expr": "bottomk(1, last_over_time(route_delay_extreme_seconds{type=\"best\"}[2m]) ) / 60",
+          "legendFormat": "{{route_id}}",
+          "refId": "E2"
+        }
+      ],
+      "fieldConfig": { "defaults": { "unit": "m", "decimals": 2 } },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "orientation": "horizontal",
+        "textMode": "auto",
+        "colorMode": "value"
+      },
+      "gridPos": { "h": 8, "w": 4, "x": 20, "y": 8 }
     }
   ]
 }

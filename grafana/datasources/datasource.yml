@@ -8,3 +8,15 @@ datasources:
     isDefault: false
     uid: prometheus-ds
 
+
+  - name: Trino
+    type: prestodb
+    access: proxy
+    url: http://trino:8080
+    database: delta/hdw
+    user: admin
+    uid: trino-ds
+    jsonData:
+      catalog: delta
+      schema: hdw
+      httpMode: POST

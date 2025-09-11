@@ -2,13 +2,13 @@
 
 👉 [Jump straight to the Architecture Diagram](#architecture-and-workflow)
 
-> Detailed docs: [Data and Storage](docs/data.md) · [Processing and Data Flow](docs/processing.md)
+> Detailed docs: [Architecture Rationale](docs/architecture_rationale.md) · [Data and Storage](docs/data.md) · [Processing and Data Flow](docs/processing.md)
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)  
+<!-- - [Overview](#overview)  
 - [Target Audience](#target-audience)  
 - [Business Value](#business-value)
 - [Cost](#cost)  
@@ -20,7 +20,7 @@
 - [How to run - Recommended Order](#how-to-run---recommended-order)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
-- [License](#license)
+- [License](#license) -->
 
 ---
 
@@ -123,14 +123,14 @@ In addition to the Medallion data flow, the architecture also includes dedicated
 
   ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
 
-  <details><summary>Attribution</summary>
-  Based on this template: <a href="https://grafana.com/grafana/dashboards/11962-kafka-metrics/">Kafka Metrics</a>.
-  </details>
-
 * **Monitoring and observability:**
   - **Kafka** is monitored through JMX exporters, with metrics scraped by Prometheus and visualized in Grafana.
 
     ![Kafka Dashboard Screenshot](/docs/img/kafka_monitoring.png)
+
+    <details><summary>Attribution</summary>
+    Based on this template: <a href="https://grafana.com/grafana/dashboards/11962-kafka-metrics/">Kafka Metrics</a>.
+    </details>
       
   - **Spark** provides its own monitoring via the **Spark UI** (per job/streaming application).  
 

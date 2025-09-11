@@ -34,7 +34,7 @@ max_timestamp = get_max_timestamp(spark, schema_name, table_name)
 df_ld = spark \
     .read \
     .table(landing_table_full_name) \
-    .where(f"insert_time > to_timestamp('{max_timestamp}')")
+    .where(f"insert_time > to_timestamp('2025-09-05 12:09:10.112 +0000')")
 
 print("SPARK_APP: Landing Data Count - " + str(df_ld.count()))
 print("SPARK_APP: Printing Landing Schema --")
