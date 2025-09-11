@@ -8,15 +8,15 @@ This document explains why the HSL Streaming Lakehouse architecture was designed
 
 ## Table of Contents
 
-[Overall Architecture Principles](#1-overall-architecture-principles)
-[Cost Constraints](#2-cost-constraints)
-[Real-Time Requirements & Why Spark Structured Streaming](#3-real-time-requirements--why-spark-structured-streaming)
-[Why Lakehouse Instead of Traditional Databases](#4-why-lakehouse-instead-of-traditional-databases)
-[Data Ingestion – Why Kafka for Streaming](#5-data-ingestion--why-kafka-for-streaming)
-[Real-Time Metrics – Why Prometheus Instead of ClickHouse](#6-real-time-metrics--why-prometheus-instead-of-clickhouse)
-[Query Engine – Trino vs Athena](#7-query-engine--trino-vs-athena)
-[Orchestration – Airflow](#8-orchestration--airflow)
-[Future Improvements](#9-future-improvements)
+* [Overall Architecture Principles](#1-overall-architecture-principles)
+* [Cost Constraints](#2-cost-constraints)
+* [Real-Time Requirements & Why Spark Structured Streaming](#3-real-time-requirements--why-spark-structured-streaming)
+* [Why Lakehouse Instead of Traditional Databases](#4-why-lakehouse-instead-of-traditional-databases)
+* [Data Ingestion – Why Kafka for Streaming](#5-data-ingestion--why-kafka-for-streaming)
+* [Real-Time Metrics – Why Prometheus Instead of ClickHouse](#6-real-time-metrics--why-prometheus-instead-of-clickhouse)
+* [Query Engine – Trino vs Athena](#7-query-engine--trino-vs-athena)
+* [Orchestration – Airflow](#8-orchestration--airflow)
+* [Future Improvements](#9-future-improvements)
 
 ---
 
