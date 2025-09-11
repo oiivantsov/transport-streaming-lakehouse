@@ -9,7 +9,7 @@ It illustrates how public transport events are ingested, stored, and transformed
 
 ## Table of Contents
 
-<!-- - [Medallion Architecture Overview](#medallion-architecture-overview)  
+- [Medallion Architecture Overview](#medallion-architecture-overview)  
 - [File Organization in S3](#file-organization-in-s3)  
 - [Streaming Data Flow (Events)](#streaming-data-flow-events)  
   - [1. Landing Layer (Bronze)](#1-landing-layer-bronze)  
@@ -23,7 +23,7 @@ It illustrates how public transport events are ingested, stored, and transformed
   - [1. Landing Layer (Bronze) – hdw_ld.routes_ld](#landing-layer-bronze--hdw_ldroutes_ld)  
   - [2. Staging Layer (Silver) – hdw_stg.routes_stg](#staging-layer-silver--hdw_stgroutes_stg)  
   - [3. Data Warehouse Layer (Gold) – hdw.dim_routes](#data-warehouse-layer-gold--hdwdim_routes)  
-- [Star Schema in the Gold Layer](#star-schema-in-the-gold-layer)   -->
+- [Star Schema in the Gold Layer](#star-schema-in-the-gold-layer)
 
 ---
 
