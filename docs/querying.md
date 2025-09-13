@@ -12,7 +12,7 @@ With **Trino** (formerly PrestoSQL) connected to the **Hive Metastore**, all lay
 Trino integrates with the **Hive Metastore**, which provides:
 
 * **Unified metadata**: Table definitions, partitions, and schema details are stored centrally in the Hive Metastore.
-* **SQL interoperability**: Any tool connected to Trino can query Delta tables in S3 via Hive Metastore metadata. In our case, we use CloudBeaver as the SQL client.
+* **SQL interoperability**: Any tool connected to Trino can query Delta tables in S3 via Hive Metastore metadata. In this project, I used CloudBeaver as the SQL client.
 * **Delta Lake support**: Trino reads Delta tables through the Hive catalog, so updates in Delta (e.g., merges, new partitions) are instantly reflected in query results.
 
  While the examples below use SQL queries via Trino and Hive Metastore, note that Trino can also be connected to [**visualization tools**](https://trino.io/ecosystem/index.html) such as Grafana, Tableau or Power BI, enabling interactive dashboards directly on top of the Bronze, Silver, and Gold layers.
@@ -27,7 +27,7 @@ All queries in this section are based on data collected over a **two-day period*
 * **Coverage:** buses across all routes in the Helsinki region
 * **Reasoning:** this time window includes both a weekend and busy weekdays (Monday and Tuesday), ensuring sufficient data for each route in **both directions**.
 
-Since all routes complete multiple trips during this period, the dataset offers a **representative snapshot** of operational performance, delays, and vehicle counts without requiring full-day data ingestion.
+Since all routes complete multiple trips during this period, the dataset offers a **representative snapshot** of operational performance, delays, and vehicle counts.
 
 ---
 
@@ -61,38 +61,65 @@ Below is a screenshot from the [official HSL website](https://www.hsl.fi/), show
 
 ---
 
-### Example Query: Checking Missing Partitions (Bronze Layer)
-
-In the **Bronze** layer, raw events are partitioned by operational day (`oday`). This query finds any days in September 2025 **with no data** in the landing table:
+### Partition Distribution Check (Bronze Layer)
 
 ```sql
-SELECT d.day::DATE AS missing_day
-FROM UNNEST(SEQUENCE(DATE '2025-09-01', DATE '2025-09-30', INTERVAL '1' DAY)) AS t(d)
-LEFT JOIN (
-    SELECT DISTINCT oday
-    FROM hdw_ld.vehicle_events_bronze
-) b ON d.day = b.oday
-WHERE b.oday IS NULL
-ORDER BY missing_day;
+SELECT
+  partition AS kafka_partition,
+  COUNT(*) AS event_count
+FROM
+  hdw_ld.events_ld
+GROUP BY
+  partition
+ORDER BY
+  partition;
 ```
 
-This ensures **data completeness** in the raw layer before processing downstream transformations.
+![alt text](/docs/img/sql/part_events.png)
+
+The results show that the event counts are roughly balanced across all Kafka partitions, indicating no major skew in data distribution.
 
 ---
 
-### Example Query: Event Counts per Partition (Bronze Layer)
-
-To monitor data ingestion volumes:
+### Example Query: Identify whether Ingestion by Kafka -> Spark Structured Streaming is operating without any Data Loss (Bronze Layer)
 
 ```sql
-SELECT 
-    oday, 
-    COUNT(*) AS event_count
-FROM hdw_ld.vehicle_events_bronze
-GROUP BY oday
-ORDER BY oday;
+WITH renamed_t AS (
+  SELECT
+    partition AS kafka_partition,
+    offset AS kafka_offset
+  FROM
+    hdw_ld.events_ld
+),
+ordered AS (
+  SELECT
+    kafka_partition,
+    kafka_offset,
+    LEAD(kafka_offset) OVER (
+      PARTITION BY kafka_partition ORDER BY kafka_offset
+    ) AS next_offset
+  FROM
+    renamed_t
+),
+gaps AS (
+  SELECT
+    kafka_partition,
+    kafka_offset + 1 AS missing_start,
+    next_offset - 1 AS missing_end,
+    (next_offset - kafka_offset - 1) AS missing_count
+  FROM
+    ordered
+  WHERE
+    next_offset IS NOT NULL
+    AND next_offset > kafka_offset + 1
+)
+SELECT
+  *
+FROM
+  gaps;
 ```
 
-This query quickly highlights **days with unusually low or high event counts** in the raw data.
+This ensures data completeness in the raw layer before processing downstream transformations. Over the two days, there were no missing messages.
 
 ---
+

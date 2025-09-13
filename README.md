@@ -2,13 +2,13 @@
 
 👉 [Jump straight to the Architecture Diagram](#architecture-and-workflow)
 
-> Detailed docs: [Architecture Rationale](docs/architecture_rationale.md) · [Data and Storage](docs/data.md) · [Processing and Data Flow](docs/processing.md)
+> Detailed docs: [Architecture Rationale](docs/architecture_rationale.md) · [Data and Storage](docs/data.md) · [Processing and Data Flow](docs/processing.md) · [Querying Data](docs/querying.md)
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)  
+<!-- - [Overview](#overview)  
 - [Target Audience](#target-audience)  
 - [Business Value](#business-value)
 - [Cost](#cost)  
@@ -20,7 +20,7 @@
 - [How to run - Recommended Order](#how-to-run---recommended-order)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
-- [License](#license)
+- [License](#license) -->
 
 ---
 
@@ -63,17 +63,15 @@ This automated transport pipeline delivers clear value:
 
 ## Cost
 
-To give a concrete sense of the cost efficiency, I ran the full pipeline for 3 hours, processing around 250,000 real-time events from HSL with 6 partitions and a 10-second micro-batch interval.
+To illustrate the cost efficiency, I ran the full pipeline for two days (Sunday, September 7 – Tuesday, September 9, 2025), covering the entire Monday peak period. The pipeline processed **\~2 million real-time events** from HSL using **6 partitions** and a **10-second micro-batch interval**.
 
-The resulting data volume across Bronze, Silver, and Gold layers in **Parquet** format totaled about **50 MB** in **Amazon S3** storage.
-The total cost for S3 storage and data writes came to approximately **\$0.04**.
+The resulting data across **Bronze, Silver, and Gold** layers in **Parquet** format totaled only **\~500 MB** in **Amazon S3**. The combined cost for S3 storage and PUT operations was approximately **\$0.05** for the entire run.
 
-This means that processing **2.0 million events per day** — including all data ingestion, cleaning, and analytics — would cost **around €0.32/day (up to $10/month)**, while all the streaming, batch processing, orchestration, SQL queries, and dashboards run completely **free of charge** on open-source technologies.
+Extrapolated to **30 million events per month**, the cost would stay **under \$1/month**, while all streaming, batch processing, orchestration, SQL queries, and dashboards run **free of charge** on open-source technologies.
 
-> The monthly cost can be reduced further by decreasing the number of PUT requests and increasing the micro-batch interval in the Spark job.
+> Costs can be reduced even further by lowering the frequency of PUT requests (e.g., using longer micro-batch intervals).
 
 ---
-
 
 ## Stack and Technologies
 
@@ -119,9 +117,9 @@ From there, the data flows into multiple layers following the **Medallion Lakeho
 In addition to the Medallion data flow, the architecture also includes dedicated components for **real-time metrics** and **system monitoring**:
 
 * **Real-time metrics (Prometheus + Grafana):**
-  In parallel with landing ingestion, a dedicated Spark streaming job computes **business KPIs** (active vehicles, average speed, on-time ratio). These metrics are exposed via the Python `prometheus_client` library and scraped by **Prometheus**, then visualized in near real time with **Grafana** dashboards.
+  In parallel with landing ingestion, a dedicated Spark streaming job computes **business KPIs** (active vehicles, average speed, on-time ratio) with **sub-minute latency**. These metrics are exposed via the Python `prometheus_client` library and scraped by **Prometheus**, then visualized in near real time with **Grafana** dashboards.
 
-  ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v1.png)
+  ![Grafana Dashboard Screenshot](/docs/img/stream/grafana_v6.png)
 
 * **Monitoring and observability:**
   - **Kafka** is monitored through JMX exporters, with metrics scraped by Prometheus and visualized in Grafana.
@@ -309,6 +307,14 @@ Several clear growth paths exist:
     - **Predictive modeling** (forecasting congestion, optimizing fleet allocation)
 
 This demonstrates how an open-source Lakehouse approach can grow into an enterprise-grade platform capable of processing tens of millions of events per day while supporting increasingly sophisticated analytics.
+
+### Raw S3 backup & decoupled landing
+
+To improve durability and simplify reprocessing, a **Raw layer in S3** can be added to store the exact Kafka payloads as immutable files.
+
+- **Ingestion:** Kafka -> (Kafka Connect S3 Sink) -> `s3://<bucket>/raw/hsl_stream/...`
+- **Landing job:** Spark Structured Streaming reads from the Raw S3 path (instead of directly from Kafka) and writes to bronze Delta table.
+- **Reprocessing:** If schemas change or logic needs fixes, I can replay from Raw S3 deterministically without relying on Kafka retention.
 
 ---
 
