@@ -14,7 +14,7 @@ With **Trino** (formerly PrestoSQL) connected to the **Hive Metastore**, all lay
 * [Example Query: Route Density - Vehicles vs Unique Stops](#example-query-route-density---vehicles-vs-unique-stops-gold-layer)
 * [Example Query: Average Delay per Route](#example-query-average-delay-per-route-gold-layer)
 * [Example Query: Partition Distribution Check](#example-query-partition-distribution-check-bronze-layer)
-* [Example Query: Check Kafka–Spark Ingestion for Data Loss](#example-query-check-kafka–spark-ingestion-for-data-loss)
+* [Example Query: Check Kafka–Spark Ingestion for Data Loss](#example-query-check-kafka-to-spark-ingestion-for-data-loss)
 * [Summary & Other Queries](#summary--other-queries)
 
 ---
@@ -133,7 +133,7 @@ The results show that the event counts are roughly balanced across all Kafka par
 
 ---
 
-### Example Query: Check Kafka–Spark Ingestion for Data Loss
+### Example Query: Check Kafka to Spark Ingestion for Data Loss
 Ensures no messages are missing when streaming data from Kafka to Spark in the Bronze layer.
 
 ```sql
