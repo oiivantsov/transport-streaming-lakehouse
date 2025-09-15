@@ -8,6 +8,20 @@ Here are some observations from real-time monitoring and analytics in the Lakeho
 
 ---
 
+## Table of Contents
+
+* [Real-Time Monitoring Insights](#real-time-monitoring-insights)
+  * [Total Active Vehicles Over Time](#total-active-vehicles-over-time)
+  * [Average Bus Speed](#average-bus-speed)
+  * [On-Time Arrival Performance](#on-time-arrival-performance)
+* [Route-Level Analytics (Gold Layer)](#route-level-analytics-gold-layer)
+  * [Most Popular Routes (by Bus Count)](#1-most-popular-routes-by-bus-count)
+  * [Routes with the Most Unique Stops](#2-routes-with-the-most-unique-stops)
+  * [Busiest Hubs](#3-busiest-hubs)
+* [Extending the Analysis with More Dimensions](#extending-the-analysis-with-more-dimensions)
+
+---
+
 ## Real-Time Monitoring Insights
 
 ### Total Active Vehicles Over Time
