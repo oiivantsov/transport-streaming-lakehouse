@@ -9,7 +9,7 @@ It illustrates how public transport events are ingested, stored, and transformed
 
 ## Table of Contents
 
-- [Medallion Architecture Overview](#medallion-architecture-overview)  
+<!-- - [Medallion Architecture Overview](#medallion-architecture-overview)  
 - [File Organization in S3](#file-organization-in-s3)  
 - [Streaming Data Flow (Events)](#streaming-data-flow-events)  
   - [1. Landing Layer (Bronze)](#1-landing-layer-bronze)  
@@ -23,7 +23,7 @@ It illustrates how public transport events are ingested, stored, and transformed
   - [1. Landing Layer (Bronze) – hdw_ld.routes_ld](#landing-layer-bronze--hdw_ldroutes_ld)  
   - [2. Staging Layer (Silver) – hdw_stg.routes_stg](#staging-layer-silver--hdw_stgroutes_stg)  
   - [3. Data Warehouse Layer (Gold) – hdw.dim_routes](#data-warehouse-layer-gold--hdwdim_routes)  
-- [Star Schema in the Gold Layer](#star-schema-in-the-gold-layer)
+- [Star Schema in the Gold Layer](#star-schema-in-the-gold-layer) -->
 
 ---
 
@@ -210,7 +210,6 @@ It includes \~8,500 records, each describing the location, accessibility, and hi
   * `stop_id` not null
   * Expected columns exist
 
-**Screenshot:**
 ![Stops landing](/docs/img/data/stops_ld.png)
 
 ---
@@ -239,7 +238,6 @@ Landing data is cleaned, typed, and deduplicated.
   * No duplicates by `stop_id`
   * Allowed values in `wheelchair_boarding` {0,1,2}
 
-**Screenshot:**
 ![Stops staging](/docs/img/data/stops_stg.png)
 
 ---
@@ -261,7 +259,6 @@ The final **dimension table** contains \~8,500 active stop records, managed via 
 
 This ensures **historical tracking of stop changes**, e.g., when a stop is renamed, moved, or reclassified.
 
-**Screenshot:**
 ![Stops dim](/docs/img/data/stops_dim.png)
 
 ---
@@ -296,7 +293,6 @@ The dataset includes roughly **530 unique routes** in the Helsinki region.
   * `route_id` not null
   * All expected columns exist
 
-**Screenshot:**
 ![Routes landing](/docs/img/data/routes_ld.png)
 
 ---
@@ -323,7 +319,6 @@ Landing data is cleaned and deduplicated.
   * No duplicates by `route_id`
   * Not empty
 
-**Screenshot:**
 ![Routes staging](/docs/img/data/routes_stg.png)
 
 ---
@@ -345,7 +340,6 @@ The final **dimension table** contains \~530 active routes, managed as an **SCD2
 
 This allows for **full historical tracking** of route changes — for example, when a bus line is renamed, rebranded, or converted into another transport mode.
 
-**Screenshot:**
 ![Routes dim](/docs/img/data/routes_dim.png)
 
 ---

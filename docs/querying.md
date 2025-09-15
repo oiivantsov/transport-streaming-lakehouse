@@ -31,6 +31,44 @@ Since all routes complete multiple trips during this period, the dataset offers 
 
 ---
 
+### Example Query: Route Density - Vehicles vs Unique Stops (Gold Layer)
+
+This query ranks routes by **veh\_to\_stops\_ratio** (how many distinct vehicles served a route compared to the number of unique stops that day). Higher values indicate denser vehicle coverage per stop - useful for spotting replacement services or surge capacity.
+
+```sql
+SELECT 
+    f.oday,
+    f.route,
+    r.route_short_name,
+    r.route_long_name,
+    r.route_type,
+    COUNT(DISTINCT f.vehicle_number) AS bus_count,
+    COUNT(DISTINCT f.stop) AS unique_stops,
+    ROUND(
+        CAST(COUNT(DISTINCT f.vehicle_number) AS DOUBLE) 
+        / CAST(COUNT(DISTINCT f.stop) AS DOUBLE),
+      2
+    ) AS veh_to_stops_ratio
+FROM hdw.fact_vehicle_position f
+JOIN hdw.dim_routes r
+    ON f.route_id = r.route_id
+    AND r.active_flg = 1
+WHERE f.oday = DATE '2025-09-08'
+GROUP BY f.oday, f.route_id, f.route, r.route_short_name, r.route_long_name, r.route_type
+ORDER BY veh_to_stops_ratio DESC
+LIMIT 10;
+```
+
+![99v_query](/docs/img/sql/99v.png)
+
+Route **99V** tops the list with an unusually high ratio. This bus actually is a metro replacement bus between Itäkeskus–Rastila–Vuosaari, added due to the temporary suspension of Metro service to Vuosaari and Rastila during the bridge renovation. The line ran as frequently as every 2.5 minutes at peak, which explains the high bus-to-stops density on that date.
+
+Source: [https://www.hsl.fi/en/hsl/news/service-updates/2025/03/no-metro-services-to-vuosaari-or-rastila-from-5-may--we-will-increase-bus-services-in-the-area](https://www.hsl.fi/en/hsl/news/service-updates/2025/03/no-metro-services-to-vuosaari-or-rastila-from-5-may--we-will-increase-bus-services-in-the-area)
+
+![route_on_map](/docs/img/sql/99v_map.png)
+
+---
+
 ### Example Query: Average Delay per Route (Gold Layer)
 
 The following query computes the **top 10 most delayed routes** on September 8 (Monday), 2025:
@@ -123,3 +161,8 @@ This ensures data completeness in the raw layer before processing downstream tra
 
 ---
 
+## Summary & Other Queries
+
+The SQL examples above demonstrate how Trino + Hive Metastore enables seamless querying across all layers of the Delta Lakehouse: from raw Kafka ingestion checks in the Bronze layer to aggregated KPIs in the Gold layer.
+
+Similar analytics can be extended to include geo-analytics, stop-level analysis, and time-window analysis to detect peak hours - similar to the real-time monitoring I implemented via Prometheus and Grafana, but applied over longer time horizons such as monthly or yearly reports for trend analysis and capacity planning.

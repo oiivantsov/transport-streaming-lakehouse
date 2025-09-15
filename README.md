@@ -2,13 +2,13 @@
 
 👉 [Jump straight to the Architecture Diagram](#architecture-and-workflow)
 
-> Detailed docs: [Architecture Rationale](docs/architecture_rationale.md) · [Data and Storage](docs/data.md) · [Processing and Data Flow](docs/processing.md) · [Querying Data](docs/querying.md)
+> Additional materials: [Architecture Rationale](docs/architecture_rationale.md) · [Data and Storage](docs/data.md) · [Processing and Data Flow](docs/processing.md) · [Querying Data](docs/querying.md) · [Some Facts about HSL](docs/results.md)
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)  
+<!-- - [Overview](#overview)  
 - [Target Audience](#target-audience)  
 - [Business Value](#business-value)
 - [Cost](#cost)  
@@ -20,7 +20,7 @@
 - [How to run - Recommended Order](#how-to-run---recommended-order)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
-- [License](#license)
+- [License](#license) -->
 
 ---
 
@@ -33,8 +33,6 @@ It provides open data via MQTT and GTFS feeds with real-time events like vehicle
 To harness these high-volume streams, I built this project — **a unified real-time Lakehouse on open-source technologies: Kafka for ingestion, Spark for streaming and batch processing, Delta Lake + Hive for storage and catalog, Airflow for orchestration, Trino for SQL queries, and Prometheus + Grafana for monitoring**.
 
 As a result, this project delivers a single open-source streaming Lakehouse that provides real-time operational visibility and durable historical analytics for smarter decision-making — all without vendor lock-in.
-
-I also consider this project a great opportunity to deepen my knowledge of Spark and Lakehouse, and since the core technologies are the same as in Databricks, the hands-on work also gave me the confidence to prepare for and pass the [Databricks Data Engineer Associate exam](https://www.databricks.com/learn/certification/data-engineer-associate).
 
 ---
 
