@@ -8,7 +8,7 @@
 
 ## Table of Contents
 
-<!-- - [Overview](#overview)  
+- [Overview](#overview)  
 - [Target Audience](#target-audience)  
 - [Business Value](#business-value)
 - [Cost](#cost)  
@@ -20,7 +20,7 @@
 - [How to run - Recommended Order](#how-to-run---recommended-order)
 - [Feedback](#feedback)  
 - [Disclaimer](#disclaimer)  
-- [License](#license) -->
+- [License](#license)
 
 ---
 
