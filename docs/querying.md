@@ -5,6 +5,20 @@
 This project stores data across **Bronze**, **Silver**, and **Gold** layers in the **Delta Lakehouse** architecture.
 With **Trino** (formerly PrestoSQL) connected to the **Hive Metastore**, all layers can be queried using standard SQL.
 
+---
+
+## Table of Contents
+
+* [Querying with Trino + Hive Metastore](#querying-with-trino--hive-metastore)
+* [Data Collection Window](#data-collection-window)
+* [Example Query: Route Density - Vehicles vs Unique Stops](#example-query-route-density---vehicles-vs-unique-stops-gold-layer)
+* [Example Query: Average Delay per Route](#example-query-average-delay-per-route-gold-layer)
+* [Example Query: Partition Distribution Check](#example-query-partition-distribution-check-bronze-layer)
+* [Example Query: Check Kafka-Spark Ingestion for Data Loss](#example-query-identify-whether-ingestion-by-kafka---spark-structured-streaming-is-operating-without-any-data-loss-bronze-layer)
+* [Summary & Other Queries](#summary--other-queries)
+
+---
+
 ### Querying with Trino + Hive Metastore
 
 [Trino](https://trino.io/) is a **distributed SQL query engine** designed for fast, interactive analytics over large datasets. It allows you to query multiple data sources using standard SQL, including object stores like **Amazon S3** and data lakes built with **Delta Lake**.
@@ -99,7 +113,7 @@ Below is a screenshot from the [official HSL website](https://www.hsl.fi/), show
 
 ---
 
-### Partition Distribution Check (Bronze Layer)
+### Example Query: Partition Distribution Check (Bronze Layer)
 
 ```sql
 SELECT
