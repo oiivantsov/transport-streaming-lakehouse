@@ -136,16 +136,15 @@ def update_prometheus_route_extremes(batch_df, batch_id):
     .option("checkpointLocation", "/home/jobs/checkpoint_data/realtime/metrics_totals")
     .trigger(processingTime="15 seconds")
     .start()
-    .awaitTermination()
 )
 
-# (
-#     route_windowed_df.writeStream
-#     .outputMode("append")
-#     .foreachBatch(update_prometheus_route_extremes)
-#     .option("checkpointLocation", "/home/jobs/checkpoint_data/realtime/metrics_extremes")
-#     .trigger(processingTime="15 seconds")
-#     .start()
-#     .awaitTermination()
-# )
+(
+    route_windowed_df.writeStream
+    .outputMode("append")
+    .foreachBatch(update_prometheus_route_extremes)
+    .option("checkpointLocation", "/home/jobs/checkpoint_data/realtime/metrics_extremes")
+    .trigger(processingTime="15 seconds")
+    .start()
+    .awaitTermination()
+)
 
