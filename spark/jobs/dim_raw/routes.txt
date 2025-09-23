@@ -1,5 +1,5 @@
 route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url
-1001,HSL,1,Moskova - Töölö - Sörnäinen (M) - Käpylä,,0,http://aikataulut.hsl.fi/linjat/fi/h1_1a.html
+1001,HSL,1,Eira - Töölö - Sörnäinen (M) - Käpylä,,0,http://aikataulut.hsl.fi/linjat/fi/h1_1a.html
 1001H,HSL,1H,Käpylä - Ruskeasuo,,0,http://aikataulut.hsl.fi/linjat/fi/h1_1a.html
 1001T,HSL,1T,Länsiterm. - Töölö - Sörnäinen (M) - Käpylä,,0,http://aikataulut.hsl.fi/linjat/fi/h1T.html
 1002,HSL,2,Olympiaterm. - Rautatieas. - Kamppi - Töölö - Pasila as.,,0,http://aikataulut.hsl.fi/linjat/fi/h2.html
