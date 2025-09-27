@@ -43,7 +43,8 @@ parsed_df = kafka_stream.selectExpr("CAST(value AS STRING) AS v").select(
     F.get_json_object("v", "$.payload.VP.tst").alias("tst"),
     F.get_json_object("v", "$.payload.VP.spd").cast("double").alias("speed"),
     F.get_json_object("v", "$.payload.VP.dl").cast("double").alias("delay")
-).withColumn("timestamp", F.to_timestamp("tst"))
+).withColumn("timestamp", F.to_timestamp("tst")) \
+ .filter((F.col("delay").isNotNull()) & (F.abs(F.col("delay")) <= 1800))
 
 windowed_df = (
     parsed_df
